@@ -30,4 +30,8 @@ public class StatisticController {
         String menu = (String)session.getAttribute("menu");
         logger.info("getDau called = " + menu);
     }
+
+    @GetMapping("/testView")
+    public void getTestView(HttpSession session, Model model) {
+    }
 }
