@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mera.mapper.UserMapper">
+
+<!--    <select id="login" resultType="UserVO">-->
+<!--        <![CDATA[-->
+<!--        SELECT uid, upw, uname-->
+<!--        FROM mera_admuser-->
+<!--        WHERE uid = #{uid}-->
+<!--        ]]>-->
+<!--    </select>-->
+
+<!--    <select id="keepLogin">-->
+<!--        <![CDATA[-->
+<!--        UPDATE mera_admuser-->
+<!--        SET  sessionkey = #{sessionId}, sessionLimit = #{next}-->
+<!--        WHERE uid = #{uid};-->
+<!--        ]]>-->
+<!--    </select>-->
+
+<!--    <select id="checkUserWithSessionKey" resultType="UserVO">-->
+<!--        <![CDATA[-->
+<!--        SELECT *-->
+<!--        FROM mera_admuser-->
+<!--        WHERE sessionkey = #{key} AND sessionlimit > NOW() ;-->
+<!--        ]]>-->
+<!--    </select>-->
+
+</mapper>

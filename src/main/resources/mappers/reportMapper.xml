@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mera.mapper.ReportMapper">
+
+    <select id="getMemberCountStat" resultType="MemberCountStatVO">
+        <![CDATA[
+        SELECT day
+             , count(*) as tot_cnt
+            , sum(case when plfrm_lgn_cd = 'MB00500001' then 1 else 0 end) as google_cnt
+             , sum(case when plfrm_lgn_cd = 'MB00500003' then 1 else 0 end) as facebook_cnt
+        FROM (
+                 select DATE_FORMAT(mmb_regday, '%Y-%m-%d') day
+                      , plfrm_lgn_cd
+                 from mmb
+                 where DATE_FORMAT(mmb_regday, '%Y-%m-%d') > '2020-10-06'
+             ) a
+        GROUP BY day
+        ORDER BY day
+        ]]>
+    </select>
+
+    <select id="getPageView"  resultType="PageViewVO">
+        <![CDATA[
+        SELECT stat_date, api_cd, ccm.com_cd_nm as api_nm, count(*) tot_cnt
+        FROM mera_stat_info mi
+            left join com_cd_mltl ccm
+                on ccm.com_cd = mi.api_cd and ccm.langg_cd='CM00100002'
+        WHERE stat_date >= #{search.startDate} and stat_date <= #{search.endDate}
+        GROUP BY stat_date, api_cd
+        ORDER BY stat_date desc, tot_cnt desc
+        ]]>
+    </select>
+
+    <select id="getGamePageView"  resultType="GamePageViewVO">
+        <![CDATA[
+        SELECT stat_date
+             , data_seq as game_id
+             , (select gm_title from game_list where gm_seq=mi.data_seq) as game_nm
+             , count(*) as count
+        FROM mera_stat_info mi
+        WHERE stat_date >= #{search.startDate} and stat_date <= #{search.endDate} and api_cd = 'ST00500005'
+        GROUP BY stat_date, data_seq
+        ]]>
+    </select>
+
+    <select id="getDAUView"  resultType="DauViewVO">
+        <![CDATA[
+        SELECT stat_date, count(*) as count
+        FROM (
+            SELECT stat_date, mmb_no, count(*) count
+            FROM mera_stat_info
+            WHERE stat_date >= #{search.startDate} and stat_date <= #{search.endDate}
+            GROUP BY stat_date, mmb_no
+        ) A
+        GROUP BY stat_date;
+        ]]>
+    </select>
+
+</mapper>
