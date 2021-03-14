@@ -1,5 +1,7 @@
 package org.mera.controller;
 
+import org.mera.domain.*;
+import org.mera.service.TestViewService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,8 @@ public class StatisticController {
 
     private static final Logger logger = LoggerFactory.getLogger(StatisticController.class);
 
+    private TestViewService service;
+
     //@Secured({"ROLE_ADMIN"})
     @GetMapping("/meraPageView")
     public void getPageView(HttpSession session, Model model) {
@@ -34,4 +38,5 @@ public class StatisticController {
     @GetMapping("/testView")
     public void getTestView(HttpSession session, Model model) {
     }
+
 }

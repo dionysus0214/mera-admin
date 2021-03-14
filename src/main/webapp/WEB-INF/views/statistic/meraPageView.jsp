@@ -121,7 +121,6 @@
 
                                     <div id="gamePageViewTable"></div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
