@@ -109,30 +109,38 @@
                                         </tr>
                                         </tfoot>
                                     </table>
-                                    <div class='pull-right'>
-                                        <ul class="pagination">
-                                            <c:if test="${pageMaker.prev}">
-                                                <li class="paginate_button previous">
-                                                    <a href="${pageMaker.startPage -1}">Previous</a>
-                                                </li>
-                                            </c:if>
-                    
-                                            <c:forEach var="num" begin="${pageMaker.startPage}"
-                                                end="${pageMaker.endPage}">
-                                                <li class="paginate_button ${pageMaker.cri.pageNum == num ? "active":""} ">
-                                                    <a href="${num}">${num}</a>
-                                                </li>
-                                            </c:forEach>
-                    
-                                            <c:if test="${pageMaker.next}">
-                                                <li class="paginate_button next">
-                                                    <a href="${pageMaker.endPage +1 }">Next</a>
-                                                </li>
-                                            </c:if>
-                                        </ul>
-                                    </div>
-                                    <!--  end Pagination -->            
                                 </div>
+                                <div class="card">
+                                    <ul class="pagination justify-content-center mt-2">
+                                        <li class="page-item prev"><a class="page-link" href="#">Prev</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item active"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                        <li class="page-item next"><a class="page-link" href="#">Next</a></li>
+                                    </ul>
+                                    <!-- <ul class="pagination justify-content-center mt-2">
+                                        <c:if test="${pageMaker.prev}">
+                                            <li class="page-item prev">
+                                                <a href="#">Prev</a>
+                                            </li>
+                                        </c:if>
+                
+                                        <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+                                            <li class="page-item">
+                                                <a href="#">${num}</a>
+                                            </li>
+                                        </c:forEach>
+                
+                                        <c:if test="${pageMaker.next}">
+                                            <li class="page-item next">
+                                                <a href="#">Next</a>
+                                            </li>
+                                        </c:if>
+                                    </ul> -->
+                                </div>
+                                <!--  end Pagination -->         
                                 <form id='actionForm' action="/testView/list" method='get'>
                                     <input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
                                     <input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
@@ -191,22 +199,6 @@
         $('#endDate').val(cur_year+"-"+cur_month+"-"+cur_day);
 
         pageViewUpdate();
-
-        var actionForm = $("#actionForm");
-
-        $(".paginate_button a").on("click",function(e) {
-            e.preventDefault();
-            actionForm.find("input[name='pageNum']").val($(this).attr("href"));
-            actionForm.submit();
-        });
-
-        $(".move").on("click",function(e) {
-            e.preventDefault();
-            actionForm.append("<input type='hidden' name='bno' value='" + $(this).attr("href") + "'>");
-            actionForm.attr("action","/testView/get");
-            actionForm.submit();
-
-        });
     });
 
     function pageViewUpdate() {
