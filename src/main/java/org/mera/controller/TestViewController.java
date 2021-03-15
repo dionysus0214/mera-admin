@@ -1,20 +1,24 @@
 package org.mera.controller;
 
-import org.mera.domain.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
+import java.util.List;
+
+import org.mera.domain.TestViewVO;
 import org.mera.service.TestViewService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpSession;
-import java.util.Map;
-
 @Controller
-@RequestMapping("/statistic/testView/*")
+@RequestMapping("/testView/*")
 public class TestViewController {
+
+    private static final Logger logger = LoggerFactory.getLogger(TestViewController.class);
 
     private TestViewService service;
 
@@ -24,7 +28,12 @@ public class TestViewController {
     @GetMapping("/list")
     public void list(Model model) {
 
-        model.addAttribute("list", service.getList());
+		List<TestViewVO> list = service.getList();
+        for( int i=0; i<list.size(); i++ ) {
+            logger.info(i + "=" + list.get(i));
+        }
+
+        model.addAttribute("list", list);
 
     }
 

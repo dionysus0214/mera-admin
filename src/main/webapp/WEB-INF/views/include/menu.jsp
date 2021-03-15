@@ -31,7 +31,7 @@
                     </li>
                     <li <c:if test="${menu eq '/statistic/meraDau'}">class="active"</c:if>><a href="/statistic/meraDau"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">DAU</span></a>
                     </li>
-                    <li <c:if test="${menu eq '/statistic/testView'}">class="active"</c:if>><a href="/statistic/testView"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">TestView</span></a>
+                    <li <c:if test="${menu eq '/testView/list'}">class="active"</c:if>><a href="/testView/list"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">TestView</span></a>
                     </li>
                 </ul>
             </li>

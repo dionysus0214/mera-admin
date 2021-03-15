@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.mera.mapper.TestViewMapper">
 
-    <select id="getTestView"  resultType="TestViewVO">
+    <select id="getList"  resultType="TestViewVO">
         <![CDATA[
         SELECT stat_date, api_cd, ccm.com_cd_nm as api_nm, count(*) tot_cnt
         FROM mera_stat_info mi

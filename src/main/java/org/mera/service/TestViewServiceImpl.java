@@ -20,7 +20,7 @@ import java.util.Map;
 @AllArgsConstructor
 public class TestViewServiceImpl implements TestViewService {
 
-    private static final Logger logger = LoggerFactory.getLogger(ReportServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(TestViewServiceImpl.class);
 
     private TestViewMapper mapper;
 
