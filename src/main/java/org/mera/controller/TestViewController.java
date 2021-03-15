@@ -20,7 +20,7 @@ public class TestViewController {
 	private static final Logger logger = LoggerFactory.getLogger(TestViewController.class);
 
 	private TestViewService service;
-
+	
 	@GetMapping("/list")
 	public void list(Criteria cri, Model model) throws Exception {
 
@@ -30,7 +30,6 @@ public class TestViewController {
 		int total = service.getTotal(cri);
 		logger.info("total: " + total);
 		model.addAttribute("pageMaker", new PageMaker());
-
 	}
 
 }

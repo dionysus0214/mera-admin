@@ -1,8 +1,5 @@
 package org.mera.domain;
 
-import lombok.Getter;
-import lombok.ToString;
-
 public class PageMaker {
 
 	private Criteria cri;

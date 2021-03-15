@@ -7,7 +7,7 @@ import org.mera.domain.TestViewVO;
 
 public interface TestViewService {
 	
-	public List<TestViewVO> getList(Criteria cre);
+	public List<TestViewVO> getList(Criteria cri);
 
 	public int getTotal(Criteria cri);
 	
