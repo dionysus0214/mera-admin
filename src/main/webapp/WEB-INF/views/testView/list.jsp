@@ -112,15 +112,6 @@
                                 </div>
                                 <div class="card">
                                     <ul class="pagination justify-content-center mt-2">
-                                        <li class="page-item prev"><a class="page-link" href="#">Prev</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item active"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                        <li class="page-item next"><a class="page-link" href="#">Next</a></li>
-                                    </ul>
-                                    <!-- <ul class="pagination justify-content-center mt-2">
                                         <c:if test="${pageMaker.prev}">
                                             <li class="page-item prev">
                                                 <a href="#">Prev</a>
@@ -138,11 +129,11 @@
                                                 <a href="#">Next</a>
                                             </li>
                                         </c:if>
-                                    </ul> -->
+                                    </ul>
                                 </div>
                                 <!--  end Pagination -->         
                                 <form id='actionForm' action="/testView/list" method='get'>
-                                    <input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+                                    <input type='hidden' name='perPageNum' value='${pageMaker.cri.perPageNum}'>
                                     <input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
                                 </form>
                             </div>

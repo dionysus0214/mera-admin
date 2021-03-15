@@ -1,9 +1,16 @@
 package org.mera.domain;
 
-public class Criteria {
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+@ToString
+@Setter
+@Getter
+public class Criteria {
 	private int page;
 	private int perPageNum;
+	private int amount;
 
 	public int getPageStart() {
 		return (this.page - 1) * perPageNum;
@@ -12,6 +19,11 @@ public class Criteria {
 	public Criteria() {
 		this.page = 1;
 		this.perPageNum = 10;
+	}
+
+	public Criteria(int pageNum, int amount) {
+		this.perPageNum = pageNum;
+		this.amount = amount;
 	}
 
 	public int getPage() {

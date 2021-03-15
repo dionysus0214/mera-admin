@@ -26,10 +26,7 @@ public class TestViewController {
 
 		logger.info("list: " + cri);
 		model.addAttribute("list", service.getList(cri));
-
-		int total = service.getTotal(cri);
-		logger.info("total: " + total);
-		model.addAttribute("pageMaker", new PageMaker());
+		model.addAttribute("pageMaker", new PageMaker(cri, 123));
 	}
 
 }
