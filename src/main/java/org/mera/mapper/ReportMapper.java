@@ -9,10 +9,11 @@ import java.util.List;
 
 public interface ReportMapper {
 
-    public List<MemberCountStatVO> getMemberCountStat();
+	public List<MemberCountStatVO> getMemberCountStat();
 
-    public List<PageViewVO> getPageView(@Param("search") SearchVO search);
-    public List<GamePageViewVO> getGamePageView(@Param("search") SearchVO search);
+	public List<PageViewVO> getPageView(@Param("search") SearchVO search);
 
-    public List<DauViewVO> getDAUView(@Param("search") SearchVO search);
+	public List<GamePageViewVO> getGamePageView(@Param("search") SearchVO search);
+
+	public List<DauViewVO> getDAUView(@Param("search") SearchVO search);
 }

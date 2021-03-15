@@ -1,6 +1,7 @@
 package org.mera.controller;
 
-import org.mera.domain.*;
+import javax.servlet.http.HttpSession;
+
 import org.mera.service.TestViewService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,9 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.http.HttpSession;
-import java.util.Map;
 
 /**
  * Handles requests for the application home page.

@@ -53,68 +53,95 @@
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
                                     <div class="row">
-                                        <div class="col">
+                                        <div class="col-md-3 col-12 mb-1">
                                             <form>
                                                 <input type='text' id="startDate" name="startDate" class="form-control pickadate-limits" />
                                             </form>
                                         </div>
-                                        <div class="col">
+                                        <div class="col-md-3 col-12 mb-1">
                                             <form>
                                                 <input type='text' id="endDate" name="endDate" class="form-control pickadate-limits" />
                                             </form>
                                         </div>
-                                        <div class="col">
+                                        <div class="col-md-1 col-12 mb-1">
                                             <form id='searchForm'>
                                                 <select name='type'>
                                                     <option value="">--</option>
-                                                    <option value="codd">code</option>
+                                                    <option value="code">code</option>
                                                     <option value="name">name</option>
                                                 </select>
                                             </form>
-                                        <div class="col">
-                                            <form>
-                                                <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="DataTables_Table_1">
-                                            </form>
                                         </div>
-                                        <div class="col">
+                                        <div class="col-md-3 col-12 mb-1">
+                                            <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="DataTables_Table_1">
+                                        </div>
+                                        <div class="col-md-2 col-12 mb-1">
                                             <a href="javascript:pageViewUpdate()" class="btn btn-outline-primary float-left btn-inline">Search</a>
                                         </div>
-                                    </div>                                   
+                                    </div>
                                 </div>
+                                <div class="table">                               
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Page cd</th>
+                                            <th>Page nm</th>
+                                            <th>Count</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <c:forEach items="${list}" var="data">
+                                        <tr>
+                                            <td><c:out value="${data.stat_date}" /></td>
+                                            <td><c:out value="${data.api_cd}" /></td>
+                                            <td><c:out value="${data.api_nm}" /></td>
+                                            <td><c:out value="${data.tot_cnt}" /></td>
+                                        </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                        <tfoot>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Page cd</th>
+                                            <th>Page nm</th>
+                                            <th>Count</th>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
+                                    <div class='pull-right'>
+                                        <ul class="pagination">
+                                            <c:if test="${pageMaker.prev}">
+                                                <li class="paginate_button previous">
+                                                    <a href="${pageMaker.startPage -1}">Previous</a>
+                                                </li>
+                                            </c:if>
+                    
+                                            <c:forEach var="num" begin="${pageMaker.startPage}"
+                                                end="${pageMaker.endPage}">
+                                                <li class="paginate_button ${pageMaker.cri.pageNum == num ? "active":""} ">
+                                                    <a href="${num}">${num}</a>
+                                                </li>
+                                            </c:forEach>
+                    
+                                            <c:if test="${pageMaker.next}">
+                                                <li class="paginate_button next">
+                                                    <a href="${pageMaker.endPage +1 }">Next</a>
+                                                </li>
+                                            </c:if>
+                                        </ul>
+                                    </div>
+                                    <!--  end Pagination -->            
+                                </div>
+                                <form id='actionForm' action="/testView/list" method='get'>
+                                    <input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+                                    <input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+                                </form>
                             </div>
                         </div>
                     </div>
-                </div>
-                <table class="table table-striped table-bordered table-hover">
-                    <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Page cd</th>
-                        <th>Page nm</th>
-                        <th>Count</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${list}" var="data">
-                    <tr>
-                        <td><c:out value="${data.stat_date}" /></td>
-                        <td><c:out value="${data.api_cd}" /></td>
-                        <td><c:out value="${data.api_nm}" /></td>
-                        <td><c:out value="${data.tot_cnt}" /></td>
-                    </tr>
-                    </c:forEach>
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <th>Date</th>
-                        <th>Page cd</th>
-                        <th>Page nm</th>
-                        <th>Count</th>
-                    </tr>
-                    </tfoot>
-                </table>
-            </section>
-            <!-- Dashboard Analytics end -->
+                </section>
+            </div>
         </div>
     </div>
 </div>
@@ -164,6 +191,22 @@
         $('#endDate').val(cur_year+"-"+cur_month+"-"+cur_day);
 
         pageViewUpdate();
+
+        var actionForm = $("#actionForm");
+
+        $(".paginate_button a").on("click",function(e) {
+            e.preventDefault();
+            actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+            actionForm.submit();
+        });
+
+        $(".move").on("click",function(e) {
+            e.preventDefault();
+            actionForm.append("<input type='hidden' name='bno' value='" + $(this).attr("href") + "'>");
+            actionForm.attr("action","/testView/get");
+            actionForm.submit();
+
+        });
     });
 
     function pageViewUpdate() {
