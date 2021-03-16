@@ -111,26 +111,29 @@
                                     <ul class="pagination justify-content-center mt-2">
                                         <c:if test="${pageMaker.prev}">
                                             <li class="page-item prev">
-                                                <a class="page-link" href="#">Prev</a>
+                                                <a class="page-link" href="javascript:test(${pageMaker.startPage -1})">Prev</a>
                                             </li>
                                         </c:if>
                 
                                         <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">${num}</a>
+                                            <li class="page-item ${pageMaker.cri.pageNum == num ? "active":""} ">
+                                                <a class="page-link" href="${num}">${num}</a>
                                             </li>
                                         </c:forEach>
                 
                                         <c:if test="${pageMaker.next}">
                                             <li class="page-item next">
-                                                <a class="page-link" href="#">Next</a>
+                                                <a class="page-link" href="javascript:test(${pageMaker.endPage +1})">Next</a>
                                             </li>
                                         </c:if>
                                     </ul>
                                 </div>
-                                <!--  end Pagination -->         
-                                
-                            </div>
+                                <!--  end Pagination -->
+                            </div>     
+                                <form id='actionForm' action="/testView/list" method='post'>
+                                    <input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+                                    <input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+                                </form>
                         </div>
                     </div>
                 </section>
@@ -198,18 +201,97 @@
         $('#endDate').val(cur_year+"-"+cur_month+"-"+cur_day);
 
         pageViewUpdate();
+
+        // var actionForm = $("#actionForm");
+        // $(".page-item a").on("click", function(e) {
+        //     e.preventDefault();
+        //     console.log('click');
+        //     actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+        //     actionForm.submit();
+        // });
     });
+
+    function test(curPage) {
+        var itemObj = new Object();
+        itemObj.startDate = $('#startDate').val().replaceAll('-', '');
+        itemObj.endDate = $('#endDate').val().replaceAll('-', '');
+        // itemObj.pageNum = curPage;
+        // itemObj.amount = 5;
+
+        reportService.getList("/testView/list", itemObj, function(data) {
+            $("#pageViewTable").html(data);
+            $('.zero-configuration').DataTable();
+        });
+    }
 
     function pageViewUpdate() {
         var itemObj = new Object();
         itemObj.startDate = $('#startDate').val().replaceAll('-', '');
         itemObj.endDate = $('#endDate').val().replaceAll('-', '');
 
-        reportService.getList("/report/pageView", itemObj, function(data) {
-            $("#pageViewTable").html(data);
-            $('.zero-configuration').DataTable();
-        });
+        $.ajax({
+                url: "/testView/list",
+                data: itemObj,
+                type: 'post',
+                beforeSend: function(xhr) {
+                    //xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+                },
+                success: function (result, status, xhr) {
+                    // if( callback ) {
+                    //     callback(result);
+                    // }
+                    $("#pageViewTable").html(result);
+                    //$('.zero-configuration').DataTable();
+                },
+                error: function (xhr, status, e) {
+                    if( error ) {
+                        error(e);
+                    }
+                    location.href = "/accessError";
+                },
+                complete: function () {
+                }
+            });
+
+        // reportService.getList("/testView/list", itemObj, function(data) {
+        //     $("#pageViewTable").html(data);
+        //     $('.zero-configuration').DataTable();
+        // });
     }
+
+    var reportService = (function() {
+        var csrfHeaderName = "${_csrf.headerName}";
+        var csrfTokenValue = "${_csrf.token}";
+
+        function getList(target, param, callback, error) {
+            $.ajax({
+                url: target,
+                data: param,
+                type: 'post',
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+                },
+                success: function (result, status, xhr) {
+                    if( callback ) {
+                        callback(result);
+                    }
+                },
+                error: function (xhr, status, e) {
+                    if( error ) {
+                        error(e);
+                    }
+                    location.href = "/accessError";
+                },
+                complete: function () {
+                }
+            });
+        }
+
+        return {
+            getList: getList
+        }
+        })();
+
 </script>
 <!-- END: Page JS-->
 
