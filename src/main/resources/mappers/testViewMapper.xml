@@ -8,7 +8,7 @@
         FROM mera_stat_info mi
             left join com_cd_mltl ccm
                 on ccm.com_cd = mi.api_cd and ccm.langg_cd='CM00100002'
-        WHERE stat_date >= '20210308' and stat_date <= '20210315'
+        WHERE stat_date >= '20210309' and stat_date <= '20210316'
         GROUP BY stat_date, api_cd
         ORDER BY stat_date desc, tot_cnt desc
         ]]>
@@ -20,22 +20,21 @@
         FROM mera_stat_info mi
             left join com_cd_mltl ccm
                 on ccm.com_cd = mi.api_cd and ccm.langg_cd='CM00100002'
-        WHERE stat_date >= '20210308' and stat_date <= '20210315'
+        WHERE stat_date >= '20210309' and stat_date <= '20210316'
         GROUP BY stat_date, api_cd
         ORDER BY stat_date desc, tot_cnt desc
-        LIMIT #{pageStart}, #{perPageNum}
+        LIMIT #{startPage}, #{amount}
         ]]>
     </select>
 
     <select id="getTotalCount" resultType="int">
     <![CDATA[
-		SELECT count(*) FROM (SELECT stat_date, api_cd, ccm.com_cd_nm as api_nm, count(*) tot_cnt 
+		SELECT count(*)
         FROM mera_stat_info mi 
             left join com_cd_mltl ccm 
                 on ccm.com_cd = mi.api_cd and ccm.langg_cd='CM00100002' 
-        WHERE stat_date >= '20210308' and stat_date <= '20210315' 
+        WHERE stat_date >= '20210309' and stat_date <= '20210316' 
         GROUP BY stat_date, api_cd 
-        ORDER BY stat_date desc, tot_cnt desc) total_count
     ]]>
 	</select>
 

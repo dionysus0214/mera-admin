@@ -158,8 +158,6 @@
 <script src="/resources/app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js"></script>
 <script src="/resources/app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
 
-<!-- BEGIN: Page JS-->
-<%--<script src="/resources/app-assets/js/scripts/charts/chart-echart.js"></script>--%>
 
 <script>
     $(document).ready(function () {

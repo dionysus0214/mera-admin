@@ -28,5 +28,6 @@ public class TestViewController {
 		model.addAttribute("list", service.getList(cri));
 		model.addAttribute("pageMaker", new PageMaker(cri, 123));
 	}
+	
 
 }

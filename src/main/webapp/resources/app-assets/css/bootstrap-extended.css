@@ -1361,7 +1361,8 @@ button, html [type='button'], [type='reset'], [type='submit'] {
 }
 
 .dropdown .btn:not(.btn-sm):not(.btn-lg), .dropdown .btn:not(.btn-sm):not(.btn-lg).dropdown-toggle {
-  padding : 0.85rem 1.5rem;
+  padding : 0.8rem 1.5rem;
+  max-width : 95%;
 }
 .dropdown .btn:not(.btn-sm):not(.btn-lg).btn-round, .dropdown .btn:not(.btn-sm):not(.btn-lg).dropdown-toggle.btn-round {
   border-radius : 2rem;
@@ -1447,6 +1448,7 @@ button, html [type='button'], [type='reset'], [type='submit'] {
 
 .dropdown, .dropup, .dropright, .dropleft {
   position : relative;
+  padding-left : 10px;
 }
 .dropdown .dropdown-menu .dropdown-item, .dropup .dropdown-menu .dropdown-item, .dropright .dropdown-menu .dropdown-item, .dropleft .dropdown-menu .dropdown-item {
   padding : 0.714rem 1.428rem;

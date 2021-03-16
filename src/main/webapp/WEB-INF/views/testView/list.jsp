@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/tether-theme-arrows.css">
     <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/tether.min.css">
     <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/shepherd-theme-default.css">
+    
     <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/tables/datatable/datatables.min.css">
     <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/pickers/pickadate/pickadate.css">
     <!-- END: Vendor CSS-->
@@ -63,79 +64,72 @@
                                                 <input type='text' id="endDate" name="endDate" class="form-control pickadate-limits" />
                                             </form>
                                         </div>
-                                        <div class="col-md-1 col-12 mb-1">
-                                            <form id='searchForm'>
-                                                <select name='type'>
-                                                    <option value="">--</option>
-                                                    <option value="code">code</option>
-                                                    <option value="name">name</option>
-                                                </select>
-                                            </form>
+                                        <div class="btn-group dropdown mr-1 mb-1">
+                                            <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Category
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="#">name</a>
+                                                <a class="dropdown-item" href="#">code</a>
+                                            </div>
                                         </div>
-                                        <div class="col-md-3 col-12 mb-1">
-                                            <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="DataTables_Table_1">
+                                        <div class="col-xl-4 col-md-6 col-12 mb-1">
+                                            <input type="text" class="form-control" id="basicInput" placeholder="Enter Word">
                                         </div>
                                         <div class="col-md-2 col-12 mb-1">
                                             <a href="javascript:pageViewUpdate()" class="btn btn-outline-primary float-left btn-inline">Search</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="table">                               
-                                    <table class="table table-striped table-bordered table-hover">
-                                        <thead>
-                                        <tr>
-                                            <th>Date</th>
-                                            <th>Page cd</th>
-                                            <th>Page nm</th>
-                                            <th>Count</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <c:forEach items="${list}" var="data">
-                                        <tr>
-                                            <td><c:out value="${data.stat_date}" /></td>
-                                            <td><c:out value="${data.api_cd}" /></td>
-                                            <td><c:out value="${data.api_nm}" /></td>
-                                            <td><c:out value="${data.tot_cnt}" /></td>
-                                        </tr>
-                                        </c:forEach>
-                                        </tbody>
-                                        <tfoot>
-                                        <tr>
-                                            <th>Date</th>
-                                            <th>Page cd</th>
-                                            <th>Page nm</th>
-                                            <th>Count</th>
-                                        </tr>
-                                        </tfoot>
-                                    </table>
+                                <div class="row">
+                                    <div class="col-12">                                        
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered mb-0">
+                                                <thead>
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Page cd</th>
+                                                    <th>Page nm</th>
+                                                    <th>Count</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <c:forEach items="${list}" var="data">
+                                                <tr>
+                                                    <td><c:out value="${data.stat_date}" /></td>
+                                                    <td><c:out value="${data.api_cd}" /></td>
+                                                    <td><c:out value="${data.api_nm}" /></td>
+                                                    <td><c:out value="${data.tot_cnt}" /></td>
+                                                </tr>
+                                                </c:forEach>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card">
                                     <ul class="pagination justify-content-center mt-2">
                                         <c:if test="${pageMaker.prev}">
                                             <li class="page-item prev">
-                                                <a href="#">Prev</a>
+                                                <a class="page-link" href="#">Prev</a>
                                             </li>
                                         </c:if>
                 
                                         <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
                                             <li class="page-item">
-                                                <a href="#">${num}</a>
+                                                <a class="page-link" href="#">${num}</a>
                                             </li>
                                         </c:forEach>
                 
                                         <c:if test="${pageMaker.next}">
                                             <li class="page-item next">
-                                                <a href="#">Next</a>
+                                                <a class="page-link" href="#">Next</a>
                                             </li>
                                         </c:if>
                                     </ul>
                                 </div>
                                 <!--  end Pagination -->         
-                                <form id='actionForm' action="/testView/list" method='get'>
-                                    <input type='hidden' name='perPageNum' value='${pageMaker.cri.perPageNum}'>
-                                    <input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
-                                </form>
+                                
                             </div>
                         </div>
                     </div>
@@ -152,10 +146,24 @@
 <%@include file="../include/footer.jsp"%>
 
 <!-- BEGIN: Page Vendor JS-->
-<script src="/resources/app-assets/vendors/js/charts/echarts/echarts.min.js"></script>
+<script src="/resources/app-assets/vendors/js/pickers/pickadate/picker.js"></script>
+<script src="/resources/app-assets/vendors/js/pickers/pickadate/picker.date.js"></script>
+<script src="/resources/app-assets/vendors/js/pickers/pickadate/picker.time.js"></script>
+<script src="/resources/app-assets/vendors/js/pickers/pickadate/legacy.js"></script>
+
+<script src="/resources/app-assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+<script src="/resources/app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+<script src="/resources/app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
+<script src="/resources/app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+<script src="/resources/app-assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
+<script src="/resources/app-assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
+<script src="/resources/app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js"></script>
+<script src="/resources/app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Page JS-->
+<script src="/resources/app-assets/js/scripts/datatables/datatable.js"></script>
+<!-- END: Page JS-->
 
 <script>
     $(document).ready(function () {
