@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import lombok.AllArgsConstructor;
 
 @Controller
-@RequestMapping(value = "/testView/*")
+@RequestMapping(value = "/testView/*", method = {RequestMethod.GET, RequestMethod.POST})
 @AllArgsConstructor
 public class TestViewController {
 
@@ -22,7 +22,7 @@ public class TestViewController {
 
 	private TestViewService service;
 	
-	@PostMapping(value = "/list")
+	@PostMapping("/list")
 	public void list(Criteria cri, Model model) throws Exception {
 
 		logger.info("list: " + cri);

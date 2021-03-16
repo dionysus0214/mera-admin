@@ -9,8 +9,8 @@ import lombok.ToString;
 @Getter
 public class Criteria {
 
-	private int pageNum; // 현재 페이지 번호
-	private int amount; // 페이지에서 보여주는 데이터 수
+	private int pageNum; 
+	private int amount; 
 
 	public Criteria() {
 		this(1, 10);

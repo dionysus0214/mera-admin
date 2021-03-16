@@ -129,11 +129,7 @@
                                     </ul>
                                 </div>
                                 <!--  end Pagination -->
-                            </div>     
-                                <form id='actionForm' action="/testView/list" method='post'>
-                                    <input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
-                                    <input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
-                                </form>
+                            </div>    
                         </div>
                     </div>
                 </section>
@@ -290,7 +286,7 @@
         return {
             getList: getList
         }
-        })();
+    })();
 
 </script>
 <!-- END: Page JS-->

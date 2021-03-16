@@ -14,7 +14,7 @@ public class PageMaker {
 	private int total;
 	private Criteria cri;
 
-	public PageMaker(Criteria cri, int total) {  // PageMaker는 생성자를 정의하고 Criteria와 전체 데이터 수(total)를 파라미터로 지정
+	public PageMaker(Criteria cri, int total) { 
 
 		this.cri = cri;
 		this.total = total;
