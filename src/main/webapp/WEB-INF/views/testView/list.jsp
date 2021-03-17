@@ -63,14 +63,16 @@
                                             </form>
                                         </div>
                                         <form id="searchForm" action="/testView/list" method="get">
-                                            <select name='type'>
-                                                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':''}"/>>Category</option>
-                                                <option value="CD" <c:out value="${pageMaker.cri.type eq 'CD'?'selected':''}"/>>code</option>
-                                                <option value="NM" <c:out value="${pageMaker.cri.type eq 'NM'?'selected':''}"/>>name</option>
-                                            </select>
+                                            <div class="btn-group dropdown mr-1 mb-1">
+                                                <select name='type'>
+                                                    <option value="" <c:out value="${pageMaker.cri.type == null?'selected':''}"/>>Category</option>
+                                                    <option value="CD" <c:out value="${pageMaker.cri.type eq 'CD'?'selected':''}"/>>code</option>
+                                                    <option value="NM" <c:out value="${pageMaker.cri.type eq 'NM'?'selected':''}"/>>name</option>
+                                                </select>
+                                            </div>
                                             <input type="text" class="form-control" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>" />
                                             <input type="hidden" name="pageNum" value="<c:out value='${pageMaker.cri.pageNum}'/>" /> 
-                                            <input type="hidden" name="amount" value="<c:out value='${pageMaker.cri.amount}'/>" />
+                                            <input type="hidden" name="amount" value="<c:out value='${pageMaker.cri.amount}'/>" />                                           
                                             <div class="col-md-2 col-12 mb-1">
                                                 <button type="button" class="btn btn-primary mr-1 mb-1">Search</button>
                                             </div>
@@ -129,6 +131,8 @@
                             <form id="actionForm" action="/testView/list" method= "get">
                                 <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
                                 <input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+                                <input type="hidden" name="type" value="<c:out value='${pageMaker.cri.type}'/>" />
+                                <input type="hidden" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>" />
                             </form>
                         </div>
                     </div>
