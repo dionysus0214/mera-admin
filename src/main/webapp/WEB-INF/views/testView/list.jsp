@@ -20,11 +20,9 @@
     <link rel="stylesheet" type="text/css" href="/resources/app-assets/css/core/colors/palette-gradient.css">
     <!-- END: Page CSS-->
 
-</head>
-<!-- END: Head-->
-
 <%@include file="../include/header.jsp"%>
 <!-- BEGIN: Main Menu-->
+
 <%@include file="../include/menu.jsp"%>
 <!-- END: Main Menu-->
 
