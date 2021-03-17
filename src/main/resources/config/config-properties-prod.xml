@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>common configuration</comment>
+
+<!--    <entry key="jdbc.driverClass">com.mysql.jdbc.Driver</entry>-->
+<!--    <entry key="jdbc.url">jdbc:mysql://35.221.194.142/meradb?allowMultiQueries=true</entry>-->
+    <entry key="jdbc.driverClass">net.sf.log4jdbc.sql.jdbcapi.DriverSpy</entry>
+    <entry key="jdbc.url">jdbc:log4jdbc:mysql://35.221.194.142/meradb?charset=utf8mb4&amp;parseTime=True&amp;loc=Local</entry>
+    <entry key="jdbc.user">wishmera</entry>
+    <entry key="jdbc.pass">wishMobile21@!</entry>
+    <entry key="cloud.sql">wish-quiz-project:asia-east1:mera-cloussql</entry>
+
+</properties>

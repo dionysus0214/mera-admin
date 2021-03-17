@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>common configuration</comment>
+
+    <entry key="jdbc.driverClass">net.sf.log4jdbc.sql.jdbcapi.DriverSpy</entry>
+    <entry key="jdbc.url">jdbc:log4jdbc:mysql://206.189.132.255:33307/meradb?allowMultiQueries=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false</entry>
+    <entry key="jdbc.user">wishmera</entry>
+    <entry key="jdbc.pass">wishMobile21@!@</entry>
+
+</properties>
