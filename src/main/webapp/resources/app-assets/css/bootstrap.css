@@ -242,6 +242,10 @@ button, select {
 
 select {
   word-wrap : normal;
+  color :  #6610F2;
+  height : 37px;
+  border-radius : 5px;
+  border-color : #6610F2;
 }
 
 button, [type='button'], [type='reset'], [type='submit'] {

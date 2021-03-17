@@ -62,21 +62,25 @@
                                                 <input type="text" id="endDate" name="endDate" class="form-control pickadate-limits" />
                                             </form>
                                         </div>
-                                        <form id="searchForm" action="/testView/list" method="get">
-                                            <div class="btn-group dropdown mr-1 mb-1">
-                                                <select name='type'>
-                                                    <option value="" <c:out value="${pageMaker.cri.type == null?'selected':''}"/>>Category</option>
-                                                    <option value="CD" <c:out value="${pageMaker.cri.type eq 'CD'?'selected':''}"/>>code</option>
-                                                    <option value="NM" <c:out value="${pageMaker.cri.type eq 'NM'?'selected':''}"/>>name</option>
-                                                </select>
-                                            </div>
-                                            <input type="text" class="form-control" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>" />
-                                            <input type="hidden" name="pageNum" value="<c:out value='${pageMaker.cri.pageNum}'/>" /> 
-                                            <input type="hidden" name="amount" value="<c:out value='${pageMaker.cri.amount}'/>" />                                           
-                                            <div class="col-md-2 col-12 mb-1">
-                                                <button type="button" class="btn btn-primary mr-1 mb-1">Search</button>
-                                            </div>
-                                        </form>
+                                        <div class="col">
+                                            <form id="searchForm" action="/testView/list" method="get">
+                                                <div class="btn-group dropdown mr-1 mb-1">
+                                                    <select name='type'>
+                                                        <option value="" <c:out value="${pageMaker.cri.type == null?'selected':''}"/>>Category</option>
+                                                        <option value="CD" <c:out value="${pageMaker.cri.type eq 'CD'?'selected':''}"/>>code</option>
+                                                        <option value="NM" <c:out value="${pageMaker.cri.type eq 'NM'?'selected':''}"/>>name</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12">
+                                                    <input type="text" class="form-control" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>" placeholder="Input keyword"/>
+                                                    <input type="hidden" name="pageNum" value="<c:out value='${pageMaker.cri.pageNum}'/>" /> 
+                                                    <input type="hidden" name="amount" value="<c:out value='${pageMaker.cri.amount}'/>" />                                           
+                                                </div>
+                                                <div class="col-md-2 col-12 mb-1">
+                                                    <button type="button" class="btn btn-primary mr-1 mb-1">Search</button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
