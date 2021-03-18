@@ -1110,8 +1110,8 @@ pre code {
     -webkit-box-flex : 0;
     -webkit-flex : 0 0 25%;
         -ms-flex : 0 0 25%;
-            flex : 0 0 18%;
-    max-width : 20%;
+            flex : 0 0 25%;
+    max-width : 25%;
   }
   .col-md-4 {
     -webkit-box-flex : 0;

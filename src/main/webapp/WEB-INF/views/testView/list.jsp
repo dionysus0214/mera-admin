@@ -72,7 +72,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>" placeholder="Input keyword"/>
+                                                    <input type="text" class="form-control" id="floating-label1" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>" placeholder="Input keyword"/>
                                                     <input type="hidden" name="pageNum" value="<c:out value='${pageMaker.cri.pageNum}'/>" /> 
                                                     <input type="hidden" name="amount" value="<c:out value='${pageMaker.cri.amount}'/>" />                                           
                                                 </div>
@@ -222,6 +222,10 @@
 
 <%@include file="../include/footer.jsp"%>
 
+<!-- BEGIN: Vendor JS-->
+<script src="/resources/app-assets/vendors/js/vendors.min.js"></script>
+<!-- BEGIN Vendor JS-->
+
 <!-- BEGIN: Page Vendor JS-->
 <script src="/resources/app-assets/vendors/js/pickers/pickadate/picker.js"></script>
 <script src="/resources/app-assets/vendors/js/pickers/pickadate/picker.date.js"></script>
@@ -239,6 +243,7 @@
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Page JS-->
+<script src="/resources/app-assets/js/scripts/pickers/dateTime/pick-a-datetime.js"></script>
 <script src="/resources/app-assets/js/scripts/datatables/datatable.js"></script>
 <!-- END: Page JS-->
 
