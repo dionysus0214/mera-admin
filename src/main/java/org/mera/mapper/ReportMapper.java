@@ -16,4 +16,6 @@ public interface ReportMapper {
 	public List<GamePageViewVO> getGamePageView(@Param("search") SearchVO search);
 
 	public List<DauViewVO> getDAUView(@Param("search") SearchVO search);
+	
+	public List<TestViewVO> getTestView();
 }

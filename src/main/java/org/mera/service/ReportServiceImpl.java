@@ -7,6 +7,7 @@ import org.mera.domain.GamePageViewVO;
 import org.mera.domain.MemberCountStatVO;
 import org.mera.domain.PageViewVO;
 import org.mera.domain.SearchVO;
+import org.mera.domain.TestViewVO;
 import org.mera.mapper.ReportMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,5 +44,10 @@ public class ReportServiceImpl implements ReportService {
     @Override
     public List<DauViewVO> getDAUView(SearchVO search) throws Exception {
         return mapper.getDAUView(search);
+    }
+    
+    @Override
+    public List<TestViewVO> getTestView() throws Exception {
+        return mapper.getTestView();
     }
 }

@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12">                                        
-                                        <div class="table-responsive">
+                                        <div id="table-responsive">
                                             <table class="table table-bordered mb-0">
                                                 <thead>
                                                 <tr>
@@ -216,7 +216,44 @@
         var itemObj = new Object();
         itemObj.startDate = $('#startDate').val().replaceAll('-', '');
         itemObj.endDate = $('#endDate').val().replaceAll('-', '');
+
+        reportService.getList("/report/pageView", itemObj, function(data) {
+            $('.table table-bordered mb-0').DataTable();
+        });
     }
+
+    var reportService = (function() {
+        var csrfHeaderName = "${_csrf.headerName}";
+        var csrfTokenValue = "${_csrf.token}";
+
+        function getList(target, param, callback, error) {
+            $.ajax({
+                url: target,
+                data: param,
+                type: 'post',
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+                },
+                success: function (result, status, xhr) {
+                    if( callback ) {
+                        callback(result);
+                    }
+                },
+                error: function (xhr, status, e) {
+                    if( error ) {
+                        error(e);
+                    }
+                    location.href = "/accessError";
+                },
+                complete: function () {
+                }
+            });
+        }
+
+        return {
+            getList: getList
+        }
+    })();
 </script>
 <!-- END: Page JS-->
 
