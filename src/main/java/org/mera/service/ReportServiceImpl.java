@@ -45,9 +45,5 @@ public class ReportServiceImpl implements ReportService {
     public List<DauViewVO> getDAUView(SearchVO search) throws Exception {
         return mapper.getDAUView(search);
     }
-    
-    @Override
-    public List<TestViewVO> getTestView() throws Exception {
-        return mapper.getTestView();
-    }
+
 }

@@ -1,11 +1,13 @@
 package org.mera.mapper;
 
-import org.apache.ibatis.annotations.Param;
-import org.mera.domain.*;
-import org.mera.dto.LoginDTO;
-
-import java.util.Date;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.mera.domain.DauViewVO;
+import org.mera.domain.GamePageViewVO;
+import org.mera.domain.MemberCountStatVO;
+import org.mera.domain.PageViewVO;
+import org.mera.domain.SearchVO;
 
 public interface ReportMapper {
 
@@ -16,6 +18,5 @@ public interface ReportMapper {
 	public List<GamePageViewVO> getGamePageView(@Param("search") SearchVO search);
 
 	public List<DauViewVO> getDAUView(@Param("search") SearchVO search);
-	
-	public List<TestViewVO> getTestView();
+
 }

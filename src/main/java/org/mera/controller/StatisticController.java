@@ -33,8 +33,4 @@ public class StatisticController {
         logger.info("getDau called = " + menu);
     }
 
-    // @GetMapping("/testView")
-    // public void getTestView(HttpSession session, Model model) {
-    // }
-
 }

@@ -7,14 +7,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import lombok.AllArgsConstructor;
 
 @Controller
-@RequestMapping(value = "/testView/*", method = {RequestMethod.GET, RequestMethod.POST})
+@RequestMapping("/testView/*")
 @AllArgsConstructor
 public class TestViewController {
 
@@ -22,7 +21,7 @@ public class TestViewController {
 
 	private TestViewService service;
 	
-	@GetMapping("/list")
+	@RequestMapping(value="/list", method = {RequestMethod.GET, RequestMethod.POST})
 	public void list(Criteria cri, Model model) throws Exception {
 
 		logger.info("list: " + cri);
@@ -32,6 +31,4 @@ public class TestViewController {
 		logger.info("total: " + total);
 		model.addAttribute("pageMaker", new PageMaker(cri, total));
 	}
-	
-
 }

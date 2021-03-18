@@ -46,20 +46,6 @@
                     </div>
                 </div>
                 <!-- Bar Chart -->
-<%--                <div class="row">--%>
-<%--                    <div class="col-12">--%>
-<%--                        <div class="card">--%>
-<%--                            <div class="card-header">--%>
-<%--                                <h4 class="card-title">Bar Chart</h4>--%>
-<%--                            </div>--%>
-<%--                            <div class="card-content">--%>
-<%--                                <div class="card-body">--%>
-<%--                                    <div id="bar-chart" class="height-400"></div>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -70,13 +56,11 @@
                                 <div class="card-body card-dashboard">
                                     <div class="row">
                                         <div class="col-md-4 col-12 mb-1">
-<%--                                            <h5 class="text-bold-500">Start Date Range</h5>--%>
                                             <form>
                                                <input type='text' id="startDate" name="startDate" class="form-control pickadate-limits" />
                                             </form>
                                         </div>
                                         <div class="col-md-4 col-12 mb-1">
-<%--                                            <h5 class="text-bold-500">End Date Range</h5>--%>
                                             <form>
                                                 <input type='text' id="endDate" name="endDate" class="form-control pickadate-limits" />
                                             </form>
@@ -102,13 +86,11 @@
                                 <div class="card-body card-dashboard">
                                     <div class="row">
                                         <div class="col-md-4 col-12 mb-1">
-                                            <%--                                            <h5 class="text-bold-500">Start Date Range</h5>--%>
                                             <form>
                                                 <input type='text' id="gameSDate" name="gameSDate" class="form-control pickadate-limits" />
                                             </form>
                                         </div>
                                         <div class="col-md-4 col-12 mb-1">
-                                            <%--                                            <h5 class="text-bold-500">End Date Range</h5>--%>
                                             <form>
                                                 <input type='text' id="gameEDate" name="gameEDate" class="form-control pickadate-limits" />
                                             </form>

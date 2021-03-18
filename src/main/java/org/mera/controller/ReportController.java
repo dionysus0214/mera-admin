@@ -1,23 +1,16 @@
 package org.mera.controller;
 
-import lombok.AllArgsConstructor;
-import org.apache.ibatis.annotations.Param;
-import org.mera.domain.PageViewVO;
-import org.mera.domain.SearchCriteria;
 import org.mera.domain.SearchVO;
 import org.mera.service.ReportService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.awt.*;
-import java.util.List;
+import lombok.AllArgsConstructor;
 
 /**
  * Handles requests for the application home page.

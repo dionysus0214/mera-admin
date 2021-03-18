@@ -7,7 +7,6 @@ import org.mera.domain.GamePageViewVO;
 import org.mera.domain.MemberCountStatVO;
 import org.mera.domain.PageViewVO;
 import org.mera.domain.SearchVO;
-import org.mera.domain.TestViewVO;
 
 /**
  * Created by User on 2016-06-09.
@@ -21,6 +20,4 @@ public interface ReportService {
     public List<GamePageViewVO> getGamePageView(SearchVO search) throws Exception;
 
     public List<DauViewVO> getDAUView(SearchVO search) throws Exception;
-
-    public List<TestViewVO> getTestView() throws Exception;
 }

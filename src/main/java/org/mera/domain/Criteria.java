@@ -1,12 +1,8 @@
 package org.mera.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-@ToString
-@Setter
-@Getter
+@Data
 public class Criteria {
 
 	private int pageNum; 
@@ -14,6 +10,8 @@ public class Criteria {
 
 	private String type;
 	private String keyword;
+	private String startDate;
+	private String endDate;
 
 	public Criteria() {
 		this(1, 10);
@@ -22,6 +20,8 @@ public class Criteria {
 	public Criteria(int pageNum, int amount) {
 		this.pageNum = pageNum;
 		this.amount = amount;
+		this.startDate = "20210311";
+		this.endDate = "20210318";
 	}
 
 	public int getStartPage() {
@@ -31,4 +31,5 @@ public class Criteria {
 	public String[] getTypeArr() {
 		return type == null ? new String[] {} : type.split("");
 	}
+
 }

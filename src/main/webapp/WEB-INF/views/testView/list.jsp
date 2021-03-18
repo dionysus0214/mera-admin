@@ -64,6 +64,10 @@
                                         </div>
                                         <div class="col">
                                             <form id="searchForm" action="/testView/list" method="get">
+                                                <input type="hidden" name="startDate" value="<c:out value='${pageMaker.cri.startDate}'/>" />
+                                                <input type="hidden" name="endDate" value="<c:out value='${pageMaker.cri.endDate}'/>" />
+                                                <input type="hidden" name="pageNum" value="<c:out value='${pageMaker.cri.pageNum}'/>" /> 
+                                                <input type="hidden" name="amount" value="<c:out value='${pageMaker.cri.amount}'/>" />    
                                                 <div class="btn-group dropdown mr-1 mb-1">
                                                     <select name='type'>
                                                         <option value="" <c:out value="${pageMaker.cri.type == null?'selected':''}"/>>Category</option>
@@ -72,9 +76,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control" id="floating-label1" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>" placeholder="Input keyword"/>
-                                                    <input type="hidden" name="pageNum" value="<c:out value='${pageMaker.cri.pageNum}'/>" /> 
-                                                    <input type="hidden" name="amount" value="<c:out value='${pageMaker.cri.amount}'/>" />                                           
+                                                    <input type="text" class="form-control" id="floating-label1" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>" placeholder="Input keyword"/>                                       
                                                 </div>
                                                 <div class="col-md-2 col-12 mb-1">
                                                     <button type="button" class="btn btn-primary mr-1 mb-1">Search</button>
@@ -135,6 +137,8 @@
                             <form id="actionForm" action="/testView/list" method= "get">
                                 <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
                                 <input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+                                <input type="hidden" name="startDate" value="<c:out value='${pageMaker.cri.startDate}'/>" />
+                                <input type="hidden" name="endDate" value="<c:out value='${pageMaker.cri.endDate}'/>" />
                                 <input type="hidden" name="type" value="<c:out value='${pageMaker.cri.type}'/>" />
                                 <input type="hidden" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>" />
                             </form>
@@ -190,6 +194,9 @@
         $(".page-item a").on("click", function(e) {
             e.preventDefault();
             actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+            actionForm.find("input[name='startDate']").val($('#startDate').val().replaceAll('-', ''));
+            actionForm.find("input[name='endDate']").val($('#endDate').val().replaceAll('-', ''));
+
             actionForm.submit();
         });
 
@@ -206,6 +213,8 @@
             }
 
             searchForm.find("input[name='pageNum']").val("1");
+            searchForm.find("input[name='startDate']").val($('#startDate').val().replaceAll('-', ''));
+            searchForm.find("input[name='endDate']").val($('#endDate').val().replaceAll('-', ''));
             e.preventDefault();
             
             searchForm.submit();
@@ -216,44 +225,9 @@
         var itemObj = new Object();
         itemObj.startDate = $('#startDate').val().replaceAll('-', '');
         itemObj.endDate = $('#endDate').val().replaceAll('-', '');
-
-        reportService.getList("/report/pageView", itemObj, function(data) {
-            $('.table table-bordered mb-0').DataTable();
-        });
+        itemObj.pageNum = '1';
     }
-
-    var reportService = (function() {
-        var csrfHeaderName = "${_csrf.headerName}";
-        var csrfTokenValue = "${_csrf.token}";
-
-        function getList(target, param, callback, error) {
-            $.ajax({
-                url: target,
-                data: param,
-                type: 'post',
-                beforeSend: function(xhr) {
-                    xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
-                },
-                success: function (result, status, xhr) {
-                    if( callback ) {
-                        callback(result);
-                    }
-                },
-                error: function (xhr, status, e) {
-                    if( error ) {
-                        error(e);
-                    }
-                    location.href = "/accessError";
-                },
-                complete: function () {
-                }
-            });
-        }
-
-        return {
-            getList: getList
-        }
-    })();
+   
 </script>
 <!-- END: Page JS-->
 
@@ -278,6 +252,12 @@
 <script src="/resources/app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js"></script>
 <script src="/resources/app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
 <!-- END: Page Vendor JS-->
+
+<!-- BEGIN: Theme JS-->
+<script src="/resources/app-assets/js/core/app-menu.js"></script>
+<script src="/resources/app-assets/js/core/app.js"></script>
+<script src="/resources/app-assets/js/scripts/components.js"></script>
+<!-- END: Theme JS-->
 
 <!-- BEGIN: Page JS-->
 <script src="/resources/app-assets/js/scripts/pickers/dateTime/pick-a-datetime.js"></script>
