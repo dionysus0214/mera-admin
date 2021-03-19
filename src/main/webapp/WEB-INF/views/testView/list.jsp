@@ -6,6 +6,8 @@
 <%@include file="../include/headerTop.jsp"%>
 
     <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/vendors.min.css">
+
     <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/charts/apexcharts.css">
     <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/tether-theme-arrows.css">
     <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/tether.min.css">
@@ -63,11 +65,11 @@
                                             </form>
                                         </div>
                                         <div class="col">
-                                            <form id="searchForm" action="/testView/list" method="get">
+                                            <form id="actionForm" action="/testView/list" method="get">
+                                                <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+                                                <input type="hidden" name="amount" value="${pageMaker.cri.amount}">
                                                 <input type="hidden" name="startDate" value="<c:out value='${pageMaker.cri.startDate}'/>" />
                                                 <input type="hidden" name="endDate" value="<c:out value='${pageMaker.cri.endDate}'/>" />
-                                                <input type="hidden" name="pageNum" value="<c:out value='${pageMaker.cri.pageNum}'/>" /> 
-                                                <input type="hidden" name="amount" value="<c:out value='${pageMaker.cri.amount}'/>" />    
                                                 <div class="btn-group dropdown mr-1 mb-1">
                                                     <select name='type'>
                                                         <option value="" <c:out value="${pageMaker.cri.type == null?'selected':''}"/>>Category</option>
@@ -134,14 +136,6 @@
                                 </div>
                                 <!--  end Pagination -->                                        
                             </div>
-                            <form id="actionForm" action="/testView/list" method= "get">
-                                <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
-                                <input type="hidden" name="amount" value="${pageMaker.cri.amount}">
-                                <input type="hidden" name="startDate" value="<c:out value='${pageMaker.cri.startDate}'/>" />
-                                <input type="hidden" name="endDate" value="<c:out value='${pageMaker.cri.endDate}'/>" />
-                                <input type="hidden" name="type" value="<c:out value='${pageMaker.cri.type}'/>" />
-                                <input type="hidden" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>" />
-                            </form>
                         </div>
                     </div>
                 </section>
@@ -191,7 +185,7 @@
         pageViewUpdate();
         
         var actionForm = $("#actionForm");
-        $(".page-item a").on("click", function(e) {
+        $(".page-item a").on("click", function(e) {            
             e.preventDefault();
             actionForm.find("input[name='pageNum']").val($(this).attr("href"));
             actionForm.find("input[name='startDate']").val($('#startDate').val().replaceAll('-', ''));
@@ -200,24 +194,23 @@
             actionForm.submit();
         });
 
-        var searchForm = $("#searchForm");
-        $("#searchForm button").on("click", function(e) {
-            if (!searchForm.find("option:selected").val()) {
+        $("#actionForm button").on("click", function(e) {
+            if (!actionForm.find("option:selected").val()) {
                 alert("카테고리를 선택하세요.");
                 return false;
             }
 
-            if (!searchForm.find("input[name='keyword']").val()) {
+            if (!actionForm.find("input[name='keyword']").val()) {
                 alert("키워드를 입력하세요.");
                 return false;
             }
 
-            searchForm.find("input[name='pageNum']").val("1");
-            searchForm.find("input[name='startDate']").val($('#startDate').val().replaceAll('-', ''));
-            searchForm.find("input[name='endDate']").val($('#endDate').val().replaceAll('-', ''));
+            actionForm.find("input[name='pageNum']").val("1");
+            actionForm.find("input[name='startDate']").val($('#startDate').val().replaceAll('-', ''));
+            actionForm.find("input[name='endDate']").val($('#endDate').val().replaceAll('-', ''));
             e.preventDefault();
             
-            searchForm.submit();
+            actionForm.submit();
         });
     });
 

@@ -20,8 +20,8 @@ public class Criteria {
 	public Criteria(int pageNum, int amount) {
 		this.pageNum = pageNum;
 		this.amount = amount;
-		this.startDate = "20210311";
-		this.endDate = "20210318";
+		this.startDate = "20210312";
+		this.endDate = "20210319";
 	}
 
 	public int getStartPage() {
