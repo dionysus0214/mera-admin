@@ -63,14 +63,14 @@
                                             </form>
                                         </div>
                                         <div class="col-md-auto col-12 mb-1 btn-group dropdown">
-                                            <select name='type'>
+                                            <select id="category" name="type">
                                                 <option value="" <c:out value="${pageMaker.cri.type == null?'selected':''}"/>>Category</option>
                                                 <option value="CD" <c:out value="${pageMaker.cri.type eq 'CD'?'selected':''}"/>>code</option>
                                                 <option value="NM" <c:out value="${pageMaker.cri.type eq 'NM'?'selected':''}"/>>name</option>
                                             </select>
                                         </div>
                                         <div class="col-md-auto col-12 mb-1">
-                                            <input type="text" class="form-control" id="floating-label1" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>" placeholder="Input keyword"/>                                       
+                                            <input type="text" class="form-control" id="keyword" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>" placeholder="Input keyword"/>                                       
                                         </div>
                                         <div class="col-md-auto col-12 mb-1">
                                             <a href="javascript:testViewUpdate(1)" class="btn btn-primary mr-1 mb-1">Search</a>
@@ -151,15 +151,6 @@
         testViewUpdate(1);
         
         // var actionForm = $("#actionForm");
-        // $(".page-item a").on("click", function(e) {            
-        //     e.preventDefault();
-        //     actionForm.find("input[name='pageNum']").val($(this).attr("href"));
-        //     actionForm.find("input[name='startDate']").val($('#startDate').val().replaceAll('-', ''));
-        //     actionForm.find("input[name='endDate']").val($('#endDate').val().replaceAll('-', ''));
-
-        //     actionForm.submit();
-        // });
-
         // $("#actionForm button").on("click", function(e) {
         //     if (!actionForm.find("option:selected").val()) {
         //         alert("카테고리를 선택하세요.");
@@ -185,9 +176,11 @@
         itemObj.startDate = $('#startDate').val().replaceAll('-', '');
         itemObj.endDate = $('#endDate').val().replaceAll('-', '');
         itemObj.pageNum = pageNum;
-        // itemObj.type = type;
-        // itemObj.keyword = keyword;
+        itemObj.type =  $('#category').val();
+        itemObj.keyword = $('#keyword').val();
 
+        console.log("itemObj.type=", itemObj.type);
+        console.log("itemObj.keyword=", itemObj.keyword);
         testViewService.getList("/testView/list", itemObj, function(data) {
             $("#testViewTable").html(data);
         });

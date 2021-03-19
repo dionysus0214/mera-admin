@@ -21,7 +21,7 @@
         FROM mera_stat_info mi
             left join com_cd_mltl ccm
                 on ccm.com_cd = mi.api_cd and ccm.langg_cd='CM00100002'
-        WHERE stat_date >= #{cri.startDate} and stat_date <= #{cri.endDate}
+        WHERE stat_date >= #{startDate} and stat_date <= #{endDate}
         GROUP BY stat_date, api_cd
         ORDER BY stat_date desc, tot_cnt desc
     ]]>
