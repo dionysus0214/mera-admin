@@ -8,7 +8,7 @@ public class Criteria {
 	private int pageNum; 
 	private int amount;
 
-	private String type;
+	private String category;
 	private String keyword;
 	private String startDate;
 	private String endDate;
@@ -29,7 +29,7 @@ public class Criteria {
 	}
 
 	public String[] getTypeArr() {
-		return type == null ? new String[] {} : type.split("");
+		return category == null ? new String[] {} : category.split("");
 	}
 
 }

@@ -243,6 +243,7 @@ button, select {
 select {
   word-wrap : normal;
   color :  #6610F2;
+  width : 100px;
   height : 37px;
   border-radius : 5px;
   border-color : #6610F2;

@@ -1448,7 +1448,6 @@ button, html [type='button'], [type='reset'], [type='submit'] {
 
 .dropdown, .dropup, .dropright, .dropleft {
   position : relative;
-  padding-left : 10px;
 }
 .dropdown .dropdown-menu .dropdown-item, .dropup .dropdown-menu .dropdown-item, .dropright .dropdown-menu .dropdown-item, .dropleft .dropdown-menu .dropdown-item {
   padding : 0.714rem 1.428rem;

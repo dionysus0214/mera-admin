@@ -5,10 +5,10 @@
     <sql id="criteria">
         <trim prefix="AND">
             <choose>
-                <when test= "type == 'CD'.toString()">
+                <when test= "category == 'CD'.toString()">
                     api_cd like CONCAT('%', #{keyword}, '%')
                 </when>
-                <when test= "type == 'NM'.toString()">
+                <when test= "category == 'NM'.toString()">
                     api_nm like CONCAT('%', #{keyword}, '%')
                 </when>
             </choose>

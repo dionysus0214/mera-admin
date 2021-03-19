@@ -176,18 +176,15 @@
         itemObj.startDate = $('#startDate').val().replaceAll('-', '');
         itemObj.endDate = $('#endDate').val().replaceAll('-', '');
         itemObj.pageNum = pageNum;
-        itemObj.type =  $('#category').val();
+        itemObj.category =  $('#category').val();
         itemObj.keyword = $('#keyword').val();
 
-        console.log("itemObj.type=", itemObj.type);
-        console.log("itemObj.keyword=", itemObj.keyword);
         testViewService.getList("/testView/list", itemObj, function(data) {
             $("#testViewTable").html(data);
         });
     }
 
     var testViewService = (function() {
-
         var csrfHeaderName = "${_csrf.headerName}";
         var csrfTokenValue = "${_csrf.token}";
 
