@@ -1,7 +1,6 @@
 package org.mera.config;
 
 import org.mera.interceptor.AuthInterceptor;
-import org.mera.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.io.FileSystemResource;
@@ -112,7 +111,7 @@ public class ServletConfig implements WebMvcConfigurer {
 //        LoginInterceptor loginInterceptor = new LoginInterceptor();
         AuthInterceptor authInterceptor = new AuthInterceptor();
 //
-//        // 로그인, 로그아웃, 회원가입은 세션 검사를 할 필요가 없으므로 exclude
+//        // 濡쒓렇�씤, 濡쒓렇�븘�썐, �쉶�썝媛��엯�� �꽭�뀡 寃��궗瑜� �븷 �븘�슂媛� �뾾�쑝誘�濡� exclude
 //        registry.addInterceptor(loginInterceptor)
 //                .addPathPatterns("/user/login")
 //                .addPathPatterns("/user/logout")

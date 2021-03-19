@@ -1,17 +1,14 @@
 package org.mera.interceptor;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-import org.springframework.web.util.WebUtils;
-import org.mera.domain.UserVO;
-import org.mera.service.UserService;
-
 import javax.inject.Inject;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.mera.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 /**
  * Created by User on 2016-06-09.
@@ -34,7 +31,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 
         logger.info("interceptor uri = " + uri + "," + query);
 //        if(session.getAttribute("login") == null) {
-//            logger.info("======================================비인가된 접근입니다.=========================================");
+//            logger.info("======================================鍮꾩씤媛��맂 �젒洹쇱엯�땲�떎.=========================================");
 //            saveDest(request);
 //
 //            Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");

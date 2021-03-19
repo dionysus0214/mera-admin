@@ -1,10 +1,5 @@
 package org.mera.mapper;
 
-import org.mera.domain.UserVO;
-import org.mera.dto.LoginDTO;
-
-import java.util.Date;
-
 public interface UserMapper {
 
 //    @Select("SELECT\n" +

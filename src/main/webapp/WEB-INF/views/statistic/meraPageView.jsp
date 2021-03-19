@@ -41,9 +41,7 @@
             <!-- Page view list -->
             <section id="basic-datatable">
                 <div class="row">
-                    <div class="col-12">
-                        <p></p>
-                    </div>
+                    <div class="col-12"></div>
                 </div>
                 <!-- Bar Chart -->
                 <div class="row">
@@ -57,7 +55,7 @@
                                     <div class="row">
                                         <div class="col-md-4 col-12 mb-1">
                                             <form>
-                                               <input type='text' id="startDate" name="startDate" class="form-control pickadate-limits" />
+                                                <input type='text' id="startDate" name="startDate" class="form-control pickadate-limits" />
                                             </form>
                                         </div>
                                         <div class="col-md-4 col-12 mb-1">

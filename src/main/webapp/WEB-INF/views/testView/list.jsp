@@ -40,11 +40,9 @@
             <!-- Page view list -->
             <section id="basic-datatable">
                 <div class="row">
-                    <div class="col-12">
-                        <p></p>
-                    </div>
+                    <div class="col-12"></div>
                 </div>
-                <!-- Bar Chart -->
+                <!-- Table -->
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -64,77 +62,26 @@
                                                 <input type="text" id="endDate" name="endDate" class="form-control pickadate-limits" />
                                             </form>
                                         </div>
-                                        <div class="col">
-                                            <form id="actionForm" action="/testView/list" method="get">
-                                                <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
-                                                <input type="hidden" name="amount" value="${pageMaker.cri.amount}">
-                                                <input type="hidden" name="startDate" value="<c:out value='${pageMaker.cri.startDate}'/>" />
-                                                <input type="hidden" name="endDate" value="<c:out value='${pageMaker.cri.endDate}'/>" />
-                                                <div class="btn-group dropdown mr-1 mb-1">
-                                                    <select name='type'>
-                                                        <option value="" <c:out value="${pageMaker.cri.type == null?'selected':''}"/>>Category</option>
-                                                        <option value="CD" <c:out value="${pageMaker.cri.type eq 'CD'?'selected':''}"/>>code</option>
-                                                        <option value="NM" <c:out value="${pageMaker.cri.type eq 'NM'?'selected':''}"/>>name</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-12">
-                                                    <input type="text" class="form-control" id="floating-label1" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>" placeholder="Input keyword"/>                                       
-                                                </div>
-                                                <div class="col-md-2 col-12 mb-1">
-                                                    <button type="button" class="btn btn-primary mr-1 mb-1">Search</button>
-                                                </div>
-                                            </form>
+                                        <div class="col-md-3 col-12 mb-1">
+                                            <div class="btn-group dropdown mr-1 mb-1">
+                                                <select name='type'>
+                                                    <option value="" <c:out value="${pageMaker.cri.type == null?'selected':''}"/>>Category</option>
+                                                    <option value="CD" <c:out value="${pageMaker.cri.type eq 'CD'?'selected':''}"/>>code</option>
+                                                    <option value="NM" <c:out value="${pageMaker.cri.type eq 'NM'?'selected':''}"/>>name</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-12">
+                                                <input type="text" class="form-control" id="floating-label1" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>" placeholder="Input keyword"/>                                       
+                                            </div>
+                                            <div class="col-md-2 col-12 mb-1">
+                                                <a href="javascript:testViewUpdate(1)" class="btn btn-primary mr-1 mb-1">Search</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-12">                                        
-                                        <div id="table-responsive">
-                                            <table class="table table-bordered mb-0">
-                                                <thead>
-                                                <tr>
-                                                    <th>Date</th>
-                                                    <th>Page cd</th>
-                                                    <th>Page nm</th>
-                                                    <th>Count</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <c:forEach items="${list}" var="data">
-                                                <tr>
-                                                    <td><c:out value="${data.stat_date}" /></td>
-                                                    <td><c:out value="${data.api_cd}" /></td>
-                                                    <td><c:out value="${data.api_nm}" /></td>
-                                                    <td><c:out value="${data.tot_cnt}" /></td>
-                                                </tr>
-                                                </c:forEach>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <ul class="pagination justify-content-center mt-2">
-                                        <c:if test="${pageMaker.prev}">
-                                            <li class="page-item prev">
-                                                <a class="page-link" href="${pageMaker.startPage -1}">Prev</a>
-                                            </li>
-                                        </c:if>
+
+                                    <div id="testViewTable"></div>                                
                 
-                                        <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-                                            <li class="page-item ${pageMaker.cri.pageNum == num ? "active":""} ">
-                                                <a class="page-link" href="${num}">${num}</a>
-                                            </li>
-                                        </c:forEach>
-                
-                                        <c:if test="${pageMaker.next}">
-                                            <li class="page-item next">
-                                                <a class="page-link" href="${pageMaker.endPage +1}">Next</a>
-                                            </li>
-                                        </c:if>
-                                    </ul>
-                                </div>
-                                <!--  end Pagination -->                                        
                             </div>
                         </div>
                     </div>
@@ -145,11 +92,34 @@
 </div>
 <!-- END: Content-->
 
-<div class="sidenav-overlay"></div>
-<div class="drag-target"></div>
+<%@include file="../include/footer.jsp"%>
+
+<!-- BEGIN: Vendor JS-->
+<script src="/resources/app-assets/vendors/js/vendors.min.js"></script>
+<!-- BEGIN Vendor JS-->
+
+<!-- BEGIN: Page Vendor JS-->
+<script src="/resources/app-assets/vendors/js/pickers/pickadate/picker.js"></script>
+<script src="/resources/app-assets/vendors/js/pickers/pickadate/picker.date.js"></script>
+<script src="/resources/app-assets/vendors/js/pickers/pickadate/picker.time.js"></script>
+<script src="/resources/app-assets/vendors/js/pickers/pickadate/legacy.js"></script>
+
+<script src="/resources/app-assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+<script src="/resources/app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+<script src="/resources/app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
+<script src="/resources/app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+<script src="/resources/app-assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
+<script src="/resources/app-assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
+<script src="/resources/app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js"></script>
+<script src="/resources/app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
+<!-- END: Page Vendor JS-->
+
+<!-- BEGIN: Page JS-->
+<script src="/resources/app-assets/js/scripts/pickers/dateTime/pick-a-datetime.js"></script>
+<script src="/resources/app-assets/js/scripts/datatables/datatable.js"></script>
+<!-- END: Page JS-->
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-
 <script>
     $(document).ready(function () {
         var cur_date = new Date();
@@ -182,79 +152,104 @@
         $('#startDate').val(bef_year+"-"+bef_month+"-"+bef_day);
         $('#endDate').val(cur_year+"-"+cur_month+"-"+cur_day);
 
-        pageViewUpdate();
+        testViewUpdate(1);
         
-        var actionForm = $("#actionForm");
-        $(".page-item a").on("click", function(e) {            
-            e.preventDefault();
-            actionForm.find("input[name='pageNum']").val($(this).attr("href"));
-            actionForm.find("input[name='startDate']").val($('#startDate').val().replaceAll('-', ''));
-            actionForm.find("input[name='endDate']").val($('#endDate').val().replaceAll('-', ''));
+        // var actionForm = $("#actionForm");
+        // $(".page-item a").on("click", function(e) {            
+        //     e.preventDefault();
+        //     actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+        //     actionForm.find("input[name='startDate']").val($('#startDate').val().replaceAll('-', ''));
+        //     actionForm.find("input[name='endDate']").val($('#endDate').val().replaceAll('-', ''));
 
-            actionForm.submit();
-        });
+        //     actionForm.submit();
+        // });
 
-        $("#actionForm button").on("click", function(e) {
-            if (!actionForm.find("option:selected").val()) {
-                alert("카테고리를 선택하세요.");
-                return false;
-            }
+        // $("#actionForm button").on("click", function(e) {
+        //     if (!actionForm.find("option:selected").val()) {
+        //         alert("카테고리를 선택하세요.");
+        //         return false;
+        //     }
 
-            if (!actionForm.find("input[name='keyword']").val()) {
-                alert("키워드를 입력하세요.");
-                return false;
-            }
+        //     if (!actionForm.find("input[name='keyword']").val()) {
+        //         alert("키워드를 입력하세요.");
+        //         return false;
+        //     }
 
-            actionForm.find("input[name='pageNum']").val("1");
-            actionForm.find("input[name='startDate']").val($('#startDate').val().replaceAll('-', ''));
-            actionForm.find("input[name='endDate']").val($('#endDate').val().replaceAll('-', ''));
-            e.preventDefault();
+        //     actionForm.find("input[name='pageNum']").val("1");
+        //     actionForm.find("input[name='startDate']").val($('#startDate').val().replaceAll('-', ''));
+        //     actionForm.find("input[name='endDate']").val($('#endDate').val().replaceAll('-', ''));
+        //     e.preventDefault();
             
-            actionForm.submit();
-        });
+        //     actionForm.submit();
+        // });
     });
 
-    function pageViewUpdate() {
+    function testViewUpdate(pageNum) {
         var itemObj = new Object();
         itemObj.startDate = $('#startDate').val().replaceAll('-', '');
         itemObj.endDate = $('#endDate').val().replaceAll('-', '');
-        itemObj.pageNum = '1';
+        itemObj.pageNum = pageNum;
+        // itemObj.type = type;
+        // itemObj.keyword = keyword;
+
+        testViewService.getList("/testView/list", itemObj, function(data) {
+            $("#testViewTable").html(data);
+        });
     }
-   
+
+    var testViewService = (function() {
+
+        var csrfHeaderName = "${_csrf.headerName}";
+        var csrfTokenValue = "${_csrf.token}";
+
+        function getList(target, param, callback, error) {
+            $.ajax({
+                url: target,
+                data: param,
+                type: 'post',
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+                },
+                success: function (result, status, xhr) {
+                    if(callback) {
+                        callback(result);
+                    }
+                },
+                error: function (xhr, status, e) {
+                    if(error) {
+                        error(e);
+                    }
+                    location.href = "/accessError";
+                },
+                complete: function () {
+                }
+            });
+        }
+
+        return {
+            getList: getList
+        }
+        })();
+
+    (function(window, document, $) {
+        'use strict';
+
+        $('.pickadate-limits').pickadate({
+            format: 'yyyy-mm-dd',
+            min: [2020,1,1],
+            max: [2030,12,31]
+        });
+
+        $('.pickadate-disable').pickadate({
+            disable: [
+                1,
+                [2019,3,6],
+                [2019,3,20]
+            ]
+        });
+    })(window, document, jQuery);
+        
 </script>
-<!-- END: Page JS-->
-
-<%@include file="../include/footer.jsp"%>
-
-<!-- BEGIN: Vendor JS-->
-<script src="/resources/app-assets/vendors/js/vendors.min.js"></script>
-<!-- BEGIN Vendor JS-->
-
-<!-- BEGIN: Page Vendor JS-->
-<script src="/resources/app-assets/vendors/js/pickers/pickadate/picker.js"></script>
-<script src="/resources/app-assets/vendors/js/pickers/pickadate/picker.date.js"></script>
-<script src="/resources/app-assets/vendors/js/pickers/pickadate/picker.time.js"></script>
-<script src="/resources/app-assets/vendors/js/pickers/pickadate/legacy.js"></script>
-
-<script src="/resources/app-assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
-<script src="/resources/app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
-<script src="/resources/app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
-<script src="/resources/app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
-<script src="/resources/app-assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
-<script src="/resources/app-assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
-<script src="/resources/app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js"></script>
-<script src="/resources/app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
-<!-- END: Page Vendor JS-->
-
-<!-- BEGIN: Theme JS-->
-<script src="/resources/app-assets/js/core/app-menu.js"></script>
-<script src="/resources/app-assets/js/core/app.js"></script>
-<script src="/resources/app-assets/js/scripts/components.js"></script>
-<!-- END: Theme JS-->
-
-<!-- BEGIN: Page JS-->
-<script src="/resources/app-assets/js/scripts/pickers/dateTime/pick-a-datetime.js"></script>
-<script src="/resources/app-assets/js/scripts/datatables/datatable.js"></script>
 <!-- END: Page JS-->
 
 </body>

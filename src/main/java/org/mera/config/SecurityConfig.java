@@ -1,8 +1,13 @@
 package org.mera.config;
 
 
-import lombok.Setter;
-import org.mera.controller.UserController;
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
+
 import org.mera.security.CustomAccessDeniedHandler;
 import org.mera.security.CustomLoginSuccessHandler;
 import org.mera.security.CustomUserDetailsService;
@@ -25,11 +30,7 @@ import org.springframework.security.web.authentication.LoginUrlAuthenticationEnt
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
-import java.io.IOException;
+import lombok.Setter;
 
 @Configuration
 @EnableWebSecurity

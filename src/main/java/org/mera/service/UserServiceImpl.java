@@ -1,16 +1,9 @@
 package org.mera.service;
 
-import lombok.AllArgsConstructor;
 import org.apache.ibatis.session.SqlSession;
-import org.mera.domain.MemberVO;
-import org.mera.mapper.UserMapper;
 import org.springframework.stereotype.Service;
-import org.mera.domain.UserVO;
-import org.mera.dto.LoginDTO;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import lombok.AllArgsConstructor;
 
 /**
  * Created by User on 2016-06-09.
@@ -23,7 +16,7 @@ public class UserServiceImpl implements UserService {
     private SqlSession session;
 
     //@Inject
-    // spring 4.3 이상에서는 @AllArgsConstructor 설정으로 자동생성
+    // spring 4.3 �씠�긽�뿉�꽌�뒗 @AllArgsConstructor �꽕�젙�쑝濡� �옄�룞�깮�꽦
 //    private UserMapper userMapper;
 //
 //    private static final String NAMESPACE = "org.mera.mapper.UserMapper";
