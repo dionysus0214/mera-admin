@@ -1097,14 +1097,14 @@ pre code {
     -webkit-flex : 0 0 8.33333%;
         -ms-flex : 0 0 8.33333%;
             flex : 0 0 8.33333%;
-    max-width : 10%;
+    max-width : 8.33333%;
   }
   .col-md-2 {
     -webkit-box-flex : 0;
     -webkit-flex : 0 0 16.66667%;
         -ms-flex : 0 0 16.66667%;
             flex : 0 0 16.66667%;
-    max-width : 15%;
+    max-width : 16.66667%;
   }
   .col-md-3 {
     -webkit-box-flex : 0;

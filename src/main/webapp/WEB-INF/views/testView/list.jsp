@@ -62,19 +62,17 @@
                                                 <input type="text" id="endDate" name="endDate" class="form-control pickadate-limits" />
                                             </form>
                                         </div>
-                                        <div class="col-md-1 col-12 mb-1">
-                                            <div class="btn-group dropdown mr-1 mb-1">
-                                                <select name='type'>
-                                                    <option value="" <c:out value="${pageMaker.cri.type == null?'selected':''}"/>>Category</option>
-                                                    <option value="CD" <c:out value="${pageMaker.cri.type eq 'CD'?'selected':''}"/>>code</option>
-                                                    <option value="NM" <c:out value="${pageMaker.cri.type eq 'NM'?'selected':''}"/>>name</option>
-                                                </select>
-                                            </div>
+                                        <div class="col-md-auto col-12 mb-1 btn-group dropdown">
+                                            <select name='type'>
+                                                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':''}"/>>Category</option>
+                                                <option value="CD" <c:out value="${pageMaker.cri.type eq 'CD'?'selected':''}"/>>code</option>
+                                                <option value="NM" <c:out value="${pageMaker.cri.type eq 'NM'?'selected':''}"/>>name</option>
+                                            </select>
                                         </div>
-                                        <div class="col-md-3 col-12 mb-1">
+                                        <div class="col-md-auto col-12 mb-1">
                                             <input type="text" class="form-control" id="floating-label1" name="keyword" value="<c:out value='${pageMaker.cri.keyword}'/>" placeholder="Input keyword"/>                                       
                                         </div>
-                                        <div class="col-md-2 col-12 mb-1">
+                                        <div class="col-md-auto col-12 mb-1">
                                             <a href="javascript:testViewUpdate(1)" class="btn btn-primary mr-1 mb-1">Search</a>
                                         </div>
                                     </div>
