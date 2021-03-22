@@ -35,6 +35,13 @@
                     </li>
                 </ul>
             </li>
+            <li class=" navigation-header"><span>Setting</span></li>
+            <li class="nav-item"><a href="/setting/env"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Setting</span></a>
+                <ul class="menu-content">
+                    <li <c:if test="${menu eq '/setting/env'}">class="active"</c:if>><a href="/setting/env"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Env</span></a>
+                    </li>
+                </ul>
+            </li>
             <li class=" navigation-header"><span>Wish Mobile</span>
             </li>
             <li class="<c:if test="${menu eq '/user/userList'}">active</c:if> nav-item"><a href="/user/userList"><i class="feather icon-mail"></i><span class="menu-title" data-i18n="Email">User</span></a>
