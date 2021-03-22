@@ -5,22 +5,20 @@
 
 <%@include file="../include/headerTop.jsp"%>
 
-    <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/vendors.min.css">
+<!-- BEGIN: Vendor CSS-->
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/charts/apexcharts.css">
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/tether-theme-arrows.css">
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/tether.min.css">
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/shepherd-theme-default.css">
 
-    <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/charts/apexcharts.css">
-    <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/tether-theme-arrows.css">
-    <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/tether.min.css">
-    <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/shepherd-theme-default.css">
-    
-    <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/tables/datatable/datatables.min.css">
-    <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/pickers/pickadate/pickadate.css">
-    <!-- END: Vendor CSS-->
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/tables/datatable/datatables.min.css">
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/pickers/pickadate/pickadate.css">
+<!-- END: Vendor CSS-->
 
-    <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="/resources/app-assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="/resources/app-assets/css/core/colors/palette-gradient.css">
-    <!-- END: Page CSS-->
+<!-- BEGIN: Page CSS-->
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/css/core/menu/menu-types/vertical-menu.css">
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/css/core/colors/palette-gradient.css">
+<!-- END: Page CSS-->
 
 <%@include file="../include/header.jsp"%>
 <!-- BEGIN: Main Menu-->
@@ -54,12 +52,12 @@
                                     <div class="row">
                                         <div class="col-md-3 col-12 mb-1">
                                             <form>
-                                                <input type="text" id="startDate" name="startDate" class="form-control format-picker" />
+                                                <input type="text" id="startDate" name="startDate" class="form-control pickadate-limits" />
                                             </form>
                                         </div>
                                         <div class="col-md-3 col-12 mb-1">
                                             <form>
-                                                <input type="text" id="endDate" name="endDate" class="form-control format-picker" />
+                                                <input type="text" id="endDate" name="endDate" class="form-control pickadate-limits" />
                                             </form>
                                         </div>
                                         <div class="col-md-auto col-12 mb-1 btn-group dropdown">
@@ -77,7 +75,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <div id="testViewTable"></div>
+                                <div id="testViewTable"></div>
                             </div>
                         </div>
                     </div>
@@ -96,6 +94,8 @@
 <script src="/resources/app-assets/vendors/js/pickers/pickadate/picker.time.js"></script>
 <script src="/resources/app-assets/vendors/js/pickers/pickadate/legacy.js"></script>
 
+<script src="/resources/app-assets/vendors/js/charts/echarts/echarts.min.js"></script>
+
 <script src="/resources/app-assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
 <script src="/resources/app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
 <script src="/resources/app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
@@ -108,8 +108,7 @@
 
 <!-- BEGIN: Page JS-->
 <script src="/resources/app-assets/js/scripts/pickers/dateTime/pick-a-datetime.js"></script>
-<script src="/resources/app-assets/js/scripts/datatables/datatable.js"></script>
-<!-- END: Page JS-->
+<!-- END: Page JS -->
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script>
@@ -193,25 +192,25 @@
         }
     })();
 
-    (function(window, document, $) {
-        'use strict';
-
-         // Date limits
-        $('.format-picker').pickadate({
-            format: 'yyyy-mm-dd',
-            min: [2020,9,1],
-            max: [2030,12,31]
-        });
-
-        // Disabled Dates & Weeks
-        $('.pickadate-disable').pickadate({
-            disable: [
-                1,
-                [2019,3,6],
-                [2019,3,20]
-            ]
-        });
-    })(window, document, jQuery);
+    // (function(window, document, $) {
+    //     'use strict';
+        
+    //      // Date limits
+    //     $('.pickadate-limits').pickadate({
+    //         format: 'yyyy-mm-dd',
+    //         min: [2020,9,1],
+    //         max: [2029,12,31]
+    //     });
+    
+    //     // Disabled Dates & Weeks
+    //     $('.pickadate-disable').pickadate({
+    //         disable: [
+    //             1,
+    //             [2019,3,6],
+    //             [2019,3,20]
+    //         ]
+    //     });
+    // })(window, document, jQuery);
 
 </script>
 <!-- END: Page JS-->

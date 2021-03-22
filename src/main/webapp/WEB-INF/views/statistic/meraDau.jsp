@@ -5,20 +5,20 @@
 
 <%@include file="../include/headerTop.jsp"%>
 
-    <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/charts/apexcharts.css">
-    <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/tether-theme-arrows.css">
-    <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/tether.min.css">
-    <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/shepherd-theme-default.css">
+<!-- BEGIN: Vendor CSS-->
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/charts/apexcharts.css">
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/tether-theme-arrows.css">
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/tether.min.css">
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/shepherd-theme-default.css">
 
-    <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/tables/datatable/datatables.min.css">
-    <link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/pickers/pickadate/pickadate.css">
-    <!-- END: Vendor CSS-->
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/tables/datatable/datatables.min.css">
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/pickers/pickadate/pickadate.css">
+<!-- END: Vendor CSS-->
 
-    <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="/resources/app-assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="/resources/app-assets/css/core/colors/palette-gradient.css">
-    <!-- END: Page CSS-->
+<!-- BEGIN: Page CSS-->
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/css/core/menu/menu-types/vertical-menu.css">
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/css/core/colors/palette-gradient.css">
+<!-- END: Page CSS-->
 
 </head>
 <!-- END: Head-->
@@ -46,20 +46,6 @@
                     </div>
                 </div>
                 <!-- Bar Chart -->
-<%--                <div class="row">--%>
-<%--                    <div class="col-12">--%>
-<%--                        <div class="card">--%>
-<%--                            <div class="card-header">--%>
-<%--                                <h4 class="card-title">Bar Chart</h4>--%>
-<%--                            </div>--%>
-<%--                            <div class="card-content">--%>
-<%--                                <div class="card-body">--%>
-<%--                                    <div id="bar-chart" class="height-400"></div>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -70,13 +56,11 @@
                                 <div class="card-body card-dashboard">
                                     <div class="row">
                                         <div class="col-md-4 col-12 mb-1">
-<%--                                            <h5 class="text-bold-500">Start Date Range</h5>--%>
                                             <form>
-                                               <input type='text' id="startDate" name="startDate" class="form-control pickadate-limits" />
+                                                <input type='text' id="startDate" name="startDate" class="form-control pickadate-limits" />
                                             </form>
                                         </div>
                                         <div class="col-md-4 col-12 mb-1">
-<%--                                            <h5 class="text-bold-500">End Date Range</h5>--%>
                                             <form>
                                                 <input type='text' id="endDate" name="endDate" class="form-control pickadate-limits" />
                                             </form>
@@ -88,15 +72,12 @@
 
                                     <div id="dauViewTable"></div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
             <!-- Dashboard Analytics end -->
-
-
         </div>
     </div>
 </div>
@@ -332,7 +313,6 @@
         });
 
         // Disabled Dates & Weeks
-
         $('.pickadate-disable').pickadate({
             disable: [
                 1,

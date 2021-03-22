@@ -20,8 +20,9 @@
 
     // Date limits
     $('.pickadate-limits').pickadate({
-        min: [2019,3,20],
-        max: [2019,5,28]
+        format: 'yyyy-mm-dd',
+        min: [2020,9,1],
+        max: [2029,12,31]
     });
 
     // Disabled Dates & Weeks
