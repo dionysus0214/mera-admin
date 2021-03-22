@@ -54,12 +54,12 @@
                                     <div class="row">
                                         <div class="col-md-3 col-12 mb-1">
                                             <form>
-                                                <input type="text" id="startDate" name="startDate" class="form-control pickadate-limits" />
+                                                <input type="text" id="startDate" name="startDate" class="form-control format-picker" />
                                             </form>
                                         </div>
                                         <div class="col-md-3 col-12 mb-1">
                                             <form>
-                                                <input type="text" id="endDate" name="endDate" class="form-control pickadate-limits" />
+                                                <input type="text" id="endDate" name="endDate" class="form-control format-picker" />
                                             </form>
                                         </div>
                                         <div class="col-md-auto col-12 mb-1 btn-group dropdown">
@@ -89,10 +89,6 @@
 <!-- END: Content-->
 
 <%@include file="../include/footer.jsp"%>
-
-<!-- BEGIN: Vendor JS-->
-<script src="/resources/app-assets/vendors/js/vendors.min.js"></script>
-<!-- BEGIN Vendor JS-->
 
 <!-- BEGIN: Page Vendor JS-->
 <script src="/resources/app-assets/vendors/js/pickers/pickadate/picker.js"></script>
@@ -149,26 +145,6 @@
         $('#endDate').val(cur_year+"-"+cur_month+"-"+cur_day);
 
         testViewUpdate(1);
-        
-        // var actionForm = $("#actionForm");
-        // $("#actionForm button").on("click", function(e) {
-        //     if (!actionForm.find("option:selected").val()) {
-        //         alert("카테고리를 선택하세요.");
-        //         return false;
-        //     }
-
-        //     if (!actionForm.find("input[name='keyword']").val()) {
-        //         alert("키워드를 입력하세요.");
-        //         return false;
-        //     }
-
-        //     actionForm.find("input[name='pageNum']").val("1");
-        //     actionForm.find("input[name='startDate']").val($('#startDate').val().replaceAll('-', ''));
-        //     actionForm.find("input[name='endDate']").val($('#endDate').val().replaceAll('-', ''));
-        //     e.preventDefault();
-            
-        //     actionForm.submit();
-        // });
     });
 
     function testViewUpdate(pageNum) {
@@ -215,17 +191,19 @@
         return {
             getList: getList
         }
-        })();
+    })();
 
     (function(window, document, $) {
         'use strict';
 
-        $('.pickadate-limits').pickadate({
+         // Date limits
+        $('.format-picker').pickadate({
             format: 'yyyy-mm-dd',
-            min: [2020,1,1],
+            min: [2020,9,1],
             max: [2030,12,31]
         });
 
+        // Disabled Dates & Weeks
         $('.pickadate-disable').pickadate({
             disable: [
                 1,
@@ -234,7 +212,7 @@
             ]
         });
     })(window, document, jQuery);
-        
+
 </script>
 <!-- END: Page JS-->
 

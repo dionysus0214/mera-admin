@@ -27,11 +27,11 @@
             <li class=" navigation-header"><span>Statistic</span></li>
             <li class="nav-item"><a href="/statistic/meraDau"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Statistics</span><span class="badge badge badge-warning badge-pill float-right mr-2">3</span></a>
                 <ul class="menu-content">
+                    <li <c:if test="${menu eq '/testView/list'}">class="active"</c:if>><a href="/testView/list"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">TestView</span></a>
+                    </li>
                     <li <c:if test="${menu eq '/statistic/meraPageView'}">class="active"</c:if> ><a href="/statistic/meraPageView"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="eCommerce">PageView</span></a>
                     </li>
                     <li <c:if test="${menu eq '/statistic/meraDau'}">class="active"</c:if>><a href="/statistic/meraDau"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">DAU</span></a>
-                    </li>
-                    <li <c:if test="${menu eq '/testView/list'}">class="active"</c:if>><a href="/testView/list"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">TestView</span></a>
                     </li>
                 </ul>
             </li>

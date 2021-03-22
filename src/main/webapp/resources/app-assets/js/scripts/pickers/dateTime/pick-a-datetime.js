@@ -15,7 +15,7 @@
 
     // Format Date Picker
     $('.format-picker').pickadate({
-        format: 'mmmm, d, yyyy'
+        format: 'yyyy-mm-dd'
     });
 
     // Date limits
