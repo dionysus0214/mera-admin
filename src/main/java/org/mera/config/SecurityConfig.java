@@ -56,7 +56,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/video/*").access("hasAnyRole('ROLE_ADMIN', 'ROLE_MEMBER')")
                 .antMatchers("/board/*").access("hasAnyRole('ROLE_ADMIN', 'ROLE_MEMBER')")
                 .antMatchers("/quiz/*").access("hasAnyRole('ROLE_ADMIN', 'ROLE_MEMBER')")
-                .antMatchers("/testView/*").permitAll();
+                .antMatchers("/testView/*").permitAll()
+                .antMatchers("/env/*").permitAll();
 
 
         http.formLogin()

@@ -36,9 +36,9 @@
                 </ul>
             </li>
             <li class=" navigation-header"><span>Setting</span></li>
-            <li class="nav-item"><a href="/setting/env"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Setting</span></a>
+            <li class="nav-item"><a href="/env/list"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Setting</span></a>
                 <ul class="menu-content">
-                    <li <c:if test="${menu eq '/setting/env'}">class="active"</c:if>><a href="/setting/env"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Env</span></a>
+                    <li <c:if test="${menu eq '/env/list'}">class="active"</c:if>><a href="/env/list"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Env</span></a>
                     </li>
                 </ul>
             </li>
