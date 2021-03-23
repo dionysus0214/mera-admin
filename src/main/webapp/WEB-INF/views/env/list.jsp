@@ -9,13 +9,15 @@
 <%@include file="../include/headerTop.jsp"%>
 
 <!-- BEGIN: Vendor CSS-->
-<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/charts/apexcharts.css">
-<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/tether-theme-arrows.css">
-<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/tether.min.css">
-<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/extensions/shepherd-theme-default.css">
-
-<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/tables/datatable/datatables.min.css">
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/vendors.min.css">
 <!-- END: Vendor CSS-->
+
+<!-- BEGIN: Theme CSS-->
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/css/bootstrap-extended.css">
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/css/colors.css">
+<link rel="stylesheet" type="text/css" href="/resources/app-assets/css/components.css">
+<!-- END: Theme CSS-->
 
 <!-- BEGIN: Page CSS-->
 <link rel="stylesheet" type="text/css" href="/resources/app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -79,18 +81,18 @@
 
 <%@include file="../include/footer.jsp"%>
 
-<!-- BEGIN: Page Vendor JS-->
-<script src="/resources/app-assets/vendors/js/charts/echarts/echarts.min.js"></script>
+<!-- BEGIN: Vendor JS-->
+<script src="/resources/app-assets/vendors/js/vendors.min.js"></script>
+<!-- BEGIN Vendor JS-->
 
-<script src="/resources/app-assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
-<script src="/resources/app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
-<script src="/resources/app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
-<script src="/resources/app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
-<script src="/resources/app-assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
-<script src="/resources/app-assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
-<script src="/resources/app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js"></script>
-<script src="/resources/app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
+<!-- BEGIN: Page Vendor JS-->
 <!-- END: Page Vendor JS-->
+
+<!-- BEGIN: Theme JS-->
+<script src="/resources/app-assets/js/core/app-menu.js"></script>
+<script src="/resources/app-assets/js/core/app.js"></script>
+<script src="/resources/app-assets/js/scripts/components.js"></script>
+<!-- END: Theme JS-->
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script>
