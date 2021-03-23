@@ -20,7 +20,7 @@ public class EnvController {
     private EnvService service;
 
     @GetMapping("/list")
-	public void listTable(Model model) throws Exception {
+	public void listFirst(Model model) throws Exception {
 	}
 
     @PostMapping("/list")

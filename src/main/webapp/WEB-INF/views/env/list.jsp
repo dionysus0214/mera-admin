@@ -3,9 +3,6 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
-<!DOCTYPE html>
-<html>
-<body>
 <%@include file="../include/headerTop.jsp"%>
 <%@include file="../include/header.jsp"%>
 <%@include file="../include/menu.jsp"%>
@@ -59,7 +56,6 @@
 
 <%@include file="../include/footer.jsp"%>
 
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
         envUpdate();
@@ -106,7 +102,3 @@
         }
     })();
 </script>
-
-</body>
-
-</html>
