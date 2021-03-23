@@ -5,33 +5,11 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<%@include file="../include/headerTop.jsp"%>
-
-<!-- BEGIN: Vendor CSS-->
-<link rel="stylesheet" type="text/css" href="/resources/app-assets/vendors/css/vendors.min.css">
-<!-- END: Vendor CSS-->
-
-<!-- BEGIN: Theme CSS-->
-<link rel="stylesheet" type="text/css" href="/resources/app-assets/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="/resources/app-assets/css/bootstrap-extended.css">
-<link rel="stylesheet" type="text/css" href="/resources/app-assets/css/colors.css">
-<link rel="stylesheet" type="text/css" href="/resources/app-assets/css/components.css">
-<!-- END: Theme CSS-->
-
-<!-- BEGIN: Page CSS-->
-<link rel="stylesheet" type="text/css" href="/resources/app-assets/css/core/menu/menu-types/vertical-menu.css">
-<link rel="stylesheet" type="text/css" href="/resources/app-assets/css/core/colors/palette-gradient.css">
-<!-- END: Page CSS-->
-
-<%@include file="../include/header.jsp"%>
-<!-- BEGIN: Main Menu-->
-
-<%@include file="../include/menu.jsp"%>
-<!-- END: Main Menu-->
-</head>
-
 <body>
+<%@include file="../include/headerTop.jsp"%>
+<%@include file="../include/header.jsp"%>
+<%@include file="../include/menu.jsp"%>
+
 <!-- BEGIN: Content-->
 <div class="app-content content">
     <div class="content-overlay"></div>
@@ -80,19 +58,6 @@
 </div>
 
 <%@include file="../include/footer.jsp"%>
-
-<!-- BEGIN: Vendor JS-->
-<script src="/resources/app-assets/vendors/js/vendors.min.js"></script>
-<!-- BEGIN Vendor JS-->
-
-<!-- BEGIN: Page Vendor JS-->
-<!-- END: Page Vendor JS-->
-
-<!-- BEGIN: Theme JS-->
-<script src="/resources/app-assets/js/core/app-menu.js"></script>
-<script src="/resources/app-assets/js/core/app.js"></script>
-<script src="/resources/app-assets/js/scripts/components.js"></script>
-<!-- END: Theme JS-->
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script>
