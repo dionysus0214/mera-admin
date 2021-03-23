@@ -5,6 +5,7 @@
 <select id="getList" resultType="org.mera.domain.EnvVO">
 <![CDATA[
     SELECT * FROM mera_env_test
+    ORDER BY seq desc
 ]]>
 </select>
 

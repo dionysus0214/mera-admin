@@ -16,7 +16,7 @@
     <div class="shadow-bottom"></div>
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class="nav-item"><a href="/dashboard/meraDAU"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span><span class="badge badge badge-warning badge-pill float-right mr-2">2</span></a>
+            <li class="nav-item"><a href="#"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span><span class="badge badge badge-warning badge-pill float-right mr-2">2</span></a>
                 <ul class="menu-content">
                     <li <c:if test="${menu eq '/dashboard/googleReport'}">class="active"</c:if>><a href="/dashboard/googleReport"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Google Analytics</span></a>
                     </li>
@@ -25,7 +25,7 @@
                 </ul>
             </li>
             <li class=" navigation-header"><span>Statistic</span></li>
-            <li class="nav-item"><a href="/statistic/meraDau"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Statistics</span><span class="badge badge badge-warning badge-pill float-right mr-2">3</span></a>
+            <li class="nav-item"><a href="#"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Statistics</span><span class="badge badge badge-warning badge-pill float-right mr-2">3</span></a>
                 <ul class="menu-content">
                     <li <c:if test="${menu eq '/testView/list'}">class="active"</c:if>><a href="/testView/list"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">TestView</span></a>
                     </li>
@@ -36,7 +36,7 @@
                 </ul>
             </li>
             <li class=" navigation-header"><span>Setting</span></li>
-            <li class="nav-item"><a href="/env/list"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Setting</span></a>
+            <li class="nav-item"><a href="#"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Setting</span></a>
                 <ul class="menu-content">
                     <li <c:if test="${menu eq '/env/list'}">class="active"</c:if>><a href="/env/list"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Env</span></a>
                     </li>
@@ -68,7 +68,7 @@
             <li class="<c:if test="${menu eq '/webs/websMainList'}">active</c:if> nav-item">
                 <a href="/webs/websMainList">
                     <i class="feather icon-mail"></i>
-                    <span class="menu-title" data-i18n="Email">webseris</span>
+                    <span class="menu-title" data-i18n="Email">webseries</span>
                 </a>
             </li>
             <li class=" navigation-header"><span>Gyanking</span></li>

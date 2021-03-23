@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-12">
         <div id="table-responsive">
-            <table class="table table-bordered mb-0">
+            <table class="table table-bordered table-hover mb-0">
                 <thead>
                 <tr>
                     <th>No</th>
@@ -27,7 +27,7 @@
                     <td><c:out value="${data.env_val}" /></td>
                     <td><c:out value="${data.use_yn}" /></td>
                     <td><c:out value="${data.reg_dt}" /></td>
-                    <td>Button</td>
+                    <td>Delete</td>
                 </tr>
                 </c:forEach>
                 </tbody>
