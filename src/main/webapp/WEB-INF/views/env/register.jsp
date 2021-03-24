@@ -29,7 +29,7 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-body">
-                                    <form class="form form-vertical">
+                                    <form class="form form-vertical" id="envInsertForm">
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-12">
@@ -94,5 +94,57 @@
 
 <%@include file="../include/footer.jsp"%>
 
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script>
+    $(document).ready(function() {
+        // envInsert();
+    });
+
+    function envInsert() {
+        var itemObj = new Object();
+        itemObj.env_nm = $('#env_nm').val();
+        itemObj.env_title = $('#env_title').val();
+        itemObj.env_val = $('#env_val').val();
+        itemObj.use_yn = $('#use_yn').val();
+
+        // var param = new Object();
+        // param = $("#envInsertForm").serialize();
+
+        envService.register("/env/register", itemObj, function(data) {
+            $("#envInsertForm").html(data);
+        });
+    }
+
+    var envService = (function() {
+        var csrfHeaderName = "${_csrf.headerName}";
+        var csrfTokenValue = "${_csrf.token}";
+
+        function register(target, param, callback, error) {
+            $.ajax({
+                url: target,
+                data: param,
+                type: 'post',
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+                },
+                success: function (result, status, xhr) {
+                    if(callback) {
+                        callback(result);
+                    }
+                },
+                error: function (xhr, status, e) {
+                    if(error) {
+                        error(e);
+                    }
+                    location.href = "/accessError";
+                },
+                complete: function () {
+                }
+            });
+        }
+
+        return {
+            register: register
+        }
+    })();
 </script>
