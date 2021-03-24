@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <div class="row">
     <div class="col-12">
@@ -26,7 +25,7 @@
                     <td><c:out value="${data.env_title}" /></td>
                     <td><c:out value="${data.env_val}" /></td>
                     <td><c:out value="${data.use_yn}" /></td>
-                    <td><c:out value="${data.reg_dt}" /></td>
+                    <td><fmt:formatDate value="${data.reg_dt}" type="date" pattern="yyyy-MM-dd" /></td>
                     <td>Delete</td>
                 </tr>
                 </c:forEach>

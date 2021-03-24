@@ -9,4 +9,26 @@
 ]]>
 </select>
 
+<select id="read" resultType="org.mera.domain.EnvVO">
+<![CDATA[
+    SELECT * FROM mera_env_test
+    WHERE seq = #{seq}
+]]>
+</select>
+
+<insert id="insert">
+    INSERT INTO mera_env_test (env_nm, env_title, env_val, use_yn)
+    VALUES (#{env_nm}, #{env_title}, #{env_val}, #{use_yn})
+</insert>
+
+<delete id="delete">
+    DELETE FROM mera_env_test WHERE seq = {#seq}
+</delete>
+
+<update id="update">
+    UPDATE mera_env_test 
+    SET env_nm = #{env_name}, env_title = #{env_title}, env_val = #{env_val}, use_yn = ${use_yn}, upd_dt = CURRENT_TIMESTAMP
+    WHERE seq = #{seq}
+</update>
+
 </mapper>

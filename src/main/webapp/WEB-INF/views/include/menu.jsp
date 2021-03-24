@@ -16,7 +16,7 @@
     <div class="shadow-bottom"></div>
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class="nav-item"><a href="#"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span><span class="badge badge badge-warning badge-pill float-right mr-2">2</span></a>
+            <li class="nav-item"><a href="#"><i class="feather icon-layers"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span><span class="badge badge badge-warning badge-pill float-right mr-2">2</span></a>
                 <ul class="menu-content">
                     <li <c:if test="${menu eq '/dashboard/googleReport'}">class="active"</c:if>><a href="/dashboard/googleReport"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Google Analytics</span></a>
                     </li>
@@ -25,7 +25,7 @@
                 </ul>
             </li>
             <li class=" navigation-header"><span>Statistic</span></li>
-            <li class="nav-item"><a href="#"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Statistics</span><span class="badge badge badge-warning badge-pill float-right mr-2">3</span></a>
+            <li class="nav-item"><a href="#"><i class="feather icon-bar-chart"></i><span class="menu-title" data-i18n="Dashboard">Statistics</span><span class="badge badge badge-warning badge-pill float-right mr-2">3</span></a>
                 <ul class="menu-content">
                     <li <c:if test="${menu eq '/testView/list'}">class="active"</c:if>><a href="/testView/list"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">TestView</span></a>
                     </li>
@@ -36,7 +36,7 @@
                 </ul>
             </li>
             <li class=" navigation-header"><span>Setting</span></li>
-            <li class="nav-item"><a href="#"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Setting</span></a>
+            <li class="nav-item"><a href="#"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Dashboard">Setting</span></a>
                 <ul class="menu-content">
                     <li <c:if test="${menu eq '/env/list'}">class="active"</c:if>><a href="/env/list"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Env</span></a>
                     </li>
@@ -44,21 +44,21 @@
             </li>
             <li class=" navigation-header"><span>Wish Mobile</span>
             </li>
-            <li class="<c:if test="${menu eq '/user/userList'}">active</c:if> nav-item"><a href="/user/userList"><i class="feather icon-mail"></i><span class="menu-title" data-i18n="Email">User</span></a>
+            <li class="<c:if test="${menu eq '/user/userList'}">active</c:if> nav-item"><a href="/user/userList"><i class="feather icon-user"></i><span class="menu-title" data-i18n="Email">User</span></a>
             </li>
-            <li class=" nav-item"><a href="#"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Ecommerce">Video</span></a>
+            <li class=" nav-item"><a href="#"><i class="feather icon-video"></i><span class="menu-title" data-i18n="Ecommerce">Video</span></a>
                 <ul class="menu-content">
                     <li <c:if test="${menu eq '/video/videoList'}">class="active"</c:if>><a href="/video/videoList"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Shop">video list</span></a>
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="#"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Ecommerce">Board</span></a>
+            <li class=" nav-item"><a href="#"><i class="feather icon-clipboard"></i><span class="menu-title" data-i18n="Ecommerce">Board</span></a>
                 <ul class="menu-content">
                     <li <c:if test="${menu eq '/board/boardList'}">class="active"</c:if>><a href="/board/boardList"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Shop">board list</span></a>
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="#"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Ecommerce">Quiz</span></a>
+            <li class=" nav-item"><a href="#"><i class="feather icon-tag"></i><span class="menu-title" data-i18n="Ecommerce">Quiz</span></a>
                 <ul class="menu-content">
                     <li <c:if test="${menu eq '/quiz/quizList'}">class="active"</c:if>><a href="/quiz/quizList"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Shop">quiz list</span></a>
                     </li>

@@ -22,4 +22,28 @@ public class EnvServiceImpl implements EnvService {
         logger.info("get List.....");
         return mapper.getList();
     }
+
+    @Override
+    public EnvVO get(int seq) {
+        logger.info("get : " + seq);
+        return mapper.read(seq);
+    }
+
+    @Override
+    public void register(EnvVO env) {
+        logger.info("register : " + env);
+        mapper.insert(env);
+    }
+
+    @Override
+    public boolean remove(int seq) {
+        logger.info("remove : " + seq);
+        return mapper.delete(seq) == 1;
+    }
+
+    @Override
+    public boolean modify(EnvVO env) {
+        logger.info("modify : " + env);
+        return mapper.update(env) == 1;
+    }
 }
