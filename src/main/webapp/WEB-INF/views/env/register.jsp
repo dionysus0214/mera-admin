@@ -35,49 +35,30 @@
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="name-vertical">Name</label>
-                                                        <input type="text" id="first-name-vertical" class="form-control" name="name" placeholder="Name">
+                                                        <input type="text" id="env_nm" value="test" class="form-control" name="env_nm" placeholder="Name">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="title-vertical">Title</label>
-                                                        <input type="text" id="title-vertical" class="form-control" name="title" placeholder="Title">
+                                                        <input type="text" id="env_title" value="test" class="form-control" name="env_title" placeholder="Title">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="content-vertical">Content</label>
-                                                        <input type="text" id="content-vertical" class="form-control" name="content" placeholder="Content">
+                                                        <input type="text" id="env_val" value="test" class="form-control" name="env_val" placeholder="Content">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <label for="use-yn-vertical">Use</label>
-                                                        <fieldset class="checkbox">
-                                                            <div class="vs-checkbox-con vs-checkbox-primary">
-                                                                <input type="checkbox">
-                                                                <span class="vs-checkbox">
-                                                                    <span class="vs-checkbox--check">
-                                                                        <i class="vs-icon feather icon-check"></i>
-                                                                    </span>
-                                                                </span>
-                                                                <span class="">Y</span>
-                                                            </div>
-                                                            <div class="vs-checkbox-con vs-checkbox-primary">
-                                                                <input type="checkbox">
-                                                                <span class="vs-checkbox">
-                                                                    <span class="vs-checkbox--check">
-                                                                        <i class="vs-icon feather icon-check"></i>
-                                                                    </span>
-                                                                </span>
-                                                                <span class="">N</span>
-                                                            </div>
-                                                        </fieldset>
+                                                        <label for="content-vertical">Y/N</label>
+                                                        <input type="text" id="use_yn" value="test" class="form-control" name="use_yn" placeholder="Y/N">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
-                                                    <button type="submit" class="btn btn-primary mr-1 mb-1">Submit</button>
-                                                    <button type="reset" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
+                                                    <button type="button" class="btn btn-primary mr-1 mb-1" onclick="formSubmit()">Submit</button>
+                                                    <button type="button" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -96,55 +77,31 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script>
-    $(document).ready(function() {
-        // envInsert();
-    });
+    var csrfHeaderName = "${_csrf.headerName}";
+    var csrfTokenValue = "${_csrf.token}"
 
-    function envInsert() {
-        var itemObj = new Object();
-        itemObj.env_nm = $('#env_nm').val();
-        itemObj.env_title = $('#env_title').val();
-        itemObj.env_val = $('#env_val').val();
-        itemObj.use_yn = $('#use_yn').val();
-
-        // var param = new Object();
-        // param = $("#envInsertForm").serialize();
-
-        envService.register("/env/register", itemObj, function(data) {
-            $("#envInsertForm").html(data);
+    function formSubmit() {
+        var param = $("#envInsertForm").serialize();
+        console.log(param);
+        $.ajax({
+            url: '/env/register',
+            data: param,
+            type: 'post',
+            dataType: 'text',
+            contentType: 'application/json',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+            },
+            success: function (data) {
+                // alert(data);
+                console.log("success", data);
+            },
+            error: function (xhr, status, e) {
+                if(e) {
+                    console.error('form submit ajaxs error : ', e);
+                }
+                location.href = "/accessError";
+            }
         });
     }
-
-    var envService = (function() {
-        var csrfHeaderName = "${_csrf.headerName}";
-        var csrfTokenValue = "${_csrf.token}";
-
-        function register(target, param, callback, error) {
-            $.ajax({
-                url: target,
-                data: param,
-                type: 'post',
-                beforeSend: function(xhr) {
-                    xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
-                },
-                success: function (result, status, xhr) {
-                    if(callback) {
-                        callback(result);
-                    }
-                },
-                error: function (xhr, status, e) {
-                    if(error) {
-                        error(e);
-                    }
-                    location.href = "/accessError";
-                },
-                complete: function () {
-                }
-            });
-        }
-
-        return {
-            register: register
-        }
-    })();
 </script>

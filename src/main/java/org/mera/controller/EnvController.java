@@ -1,5 +1,7 @@
 package org.mera.controller;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.mera.domain.EnvVO;
 import org.mera.service.EnvService;
 import org.slf4j.Logger;
@@ -45,12 +47,11 @@ public class EnvController {
     }
 
     @PostMapping("/register")
-    public String register(EnvVO env, RedirectAttributes rttr) {
-        logger.info("register : " + env);
+    public String register(EnvVO env) {
+        logger.info("register : " + response);
         service.register(env);
-        rttr.addFlashAttribute("result", env.getSeq());
 
-        return "redirect:/env/list";
+        return "/env/list";
     }
 
     @PostMapping("/modify")
