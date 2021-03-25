@@ -62,7 +62,7 @@
                                     <div class="card rounded-0 mb-0 px-2">
                                         <div class="card-header pb-1">
                                             <div class="card-title">
-                                                <h4 class="mb-0">Loginnnnn</h4>
+                                                <h4 class="mb-0">Login</h4>
                                             </div>
                                         </div>
                                         <p class="px-2">Welcome back, please login to your account.</p>
@@ -153,12 +153,12 @@
             param = $("#loginForm").serialize();
 
             $.ajax({
-                url: "/loginPost2",
+                url: "/loginPost",
                 data: param,
                 type: 'post',
                 success: function (data) {
                     console.log(data);
-                    // redirectPage(0);
+                    redirectPage(0);
                 },
                 error: function (e) {
                     console.log(e);

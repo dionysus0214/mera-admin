@@ -18,7 +18,8 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
     private static final Logger logger = LoggerFactory.getLogger(CustomLoginSuccessHandler.class);
 
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication auth) throws IOException, ServletException {
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication auth)
+            throws IOException, ServletException {
         logger.warn("Login Success");
 
         List<String> roleNames = new ArrayList<>();
@@ -27,11 +28,11 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
         });
 
         logger.warn("ROLE NAMES: " + roleNames);
-        if( roleNames.contains("ROLE_ADMIN")) {
-            response.sendRedirect("/statistic/meraPageView");
+        if (roleNames.contains("ROLE_ADMIN")) {
+            response.sendRedirect("/env/list");
             return;
         }
-        if( roleNames.contains("ROLE_MEMBER")) {
+        if (roleNames.contains("ROLE_MEMBER")) {
             response.sendRedirect("/user/userList");
             return;
         }

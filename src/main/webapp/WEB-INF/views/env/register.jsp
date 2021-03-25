@@ -29,7 +29,7 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-body">
-                                    <form class="form form-vertical" id="envInsertForm">
+                                    <form class="form form-vertical" id="envInsertForm" name="envInsertForm">
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-12">
@@ -53,12 +53,13 @@
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="content-vertical">Y/N</label>
-                                                        <input type="text" id="use_yn" value="test" class="form-control" name="use_yn" placeholder="Y/N">
+                                                        <input type="text" id="use_yn" value="Y" class="form-control" name="use_yn" placeholder="Y/N">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
-                                                    <button type="button" class="btn btn-primary mr-1 mb-1" onclick="formSubmit()">Submit</button>
+                                                    <a href="javascript:formSubmit()" class="btn btn-primary mr-1 mb-1">Submit</a>
                                                     <button type="button" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
+                                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -77,30 +78,22 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script>
-    var csrfHeaderName = "${_csrf.headerName}";
-    var csrfTokenValue = "${_csrf.token}"
-
     function formSubmit() {
-        var param = $("#envInsertForm").serialize();
+        var param = new Object();
+        param = $("#envInsertForm").serialize();
         console.log(param);
+
         $.ajax({
             url: '/env/register',
             data: param,
             type: 'post',
-            dataType: 'text',
-            contentType: 'application/json',
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
-            },
             success: function (data) {
-                // alert(data);
                 console.log("success", data);
             },
-            error: function (xhr, status, e) {
-                if(e) {
-                    console.error('form submit ajaxs error : ', e);
-                }
-                location.href = "/accessError";
+            error: function (e) {
+                console.log(e);
+            },
+            complete: function () {
             }
         });
     }
