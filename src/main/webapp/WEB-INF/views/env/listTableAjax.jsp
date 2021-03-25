@@ -20,12 +20,12 @@
                 <tbody>
                 <c:forEach items="${list}" var="env">
                 <tr>
-                    <td><c:out value="${env.seq}" /></td>
-                    <td><c:out value="${env.env_nm}" /></td>
-                    <td><c:out value="${env.env_title}" /></td>
-                    <td><c:out value="${env.env_val}" /></td>
-                    <td><c:out value="${env.use_yn}" /></td>
-                    <td><fmt:formatDate value="${env.reg_dt}" type="date" pattern="yyyy-MM-dd" /></td>
+                    <td><c:out value="${env.seq}"/></td>
+                    <td><a href='/env/get?seq=<c:out value="${env.seq}"/>'><c:out value="${env.env_nm}"/></a></td>
+                    <td><c:out value="${env.env_title}"/></td>
+                    <td><c:out value="${env.env_val}"/></td>
+                    <td><c:out value="${env.use_yn}"/></td>
+                    <td><fmt:formatDate value="${env.reg_dt}" type="date" pattern="yyyy-MM-dd"/></td>
                     <td>Delete</td>
                 </tr>
                 </c:forEach>
