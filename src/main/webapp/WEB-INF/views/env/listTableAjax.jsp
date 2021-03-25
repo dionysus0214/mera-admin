@@ -18,14 +18,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${list}" var="data">
+                <c:forEach items="${list}" var="env">
                 <tr>
-                    <td><c:out value="${data.seq}" /></td>
-                    <td><c:out value="${data.env_nm}" /></td>
-                    <td><c:out value="${data.env_title}" /></td>
-                    <td><c:out value="${data.env_val}" /></td>
-                    <td><c:out value="${data.use_yn}" /></td>
-                    <td><fmt:formatDate value="${data.reg_dt}" type="date" pattern="yyyy-MM-dd" /></td>
+                    <td><c:out value="${env.seq}" /></td>
+                    <td><c:out value="${env.env_nm}" /></td>
+                    <td><c:out value="${env.env_title}" /></td>
+                    <td><c:out value="${env.env_val}" /></td>
+                    <td><c:out value="${env.use_yn}" /></td>
+                    <td><fmt:formatDate value="${env.reg_dt}" type="date" pattern="yyyy-MM-dd" /></td>
                     <td>Delete</td>
                 </tr>
                 </c:forEach>

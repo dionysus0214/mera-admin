@@ -25,7 +25,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Environment Register</h4>
+                                <h4 class="card-title">Environment Read Page</h4>
                             </div>
                             <div class="card-content">
                                 <div class="card-body">
@@ -35,31 +35,31 @@
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="name-vertical">Name</label>
-                                                        <input type="text" class="form-control" name="env_nm" placeholder="Name">
+                                                        <input type="text" class="form-control" name="env_nm" value='<c:out value="${env.env_nm}"/>' readonly="readonly">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="title-vertical">Title</label>
-                                                        <input type="text" class="form-control" name="env_title" placeholder="Title">
+                                                        <input type="text" class="form-control" name="env_title" value='<c:out value="${env.env_title}"/>' readonly="readonly">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="content-vertical">Content</label>
-                                                        <input type="text" class="form-control" name="env_val" placeholder="Content">
+                                                        <input type="text" class="form-control" name="env_val" value='<c:out value="${env.env_val}"/>' readonly="readonly">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="content-vertical">Y/N</label>
-                                                        <input type="text" class="form-control" name="use_yn" placeholder="Y/N">
+                                                        <input type="text" class="form-control" name="use_yn" value='<c:out value="${env.use_yn}"/>' readonly="readonly">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
-                                                    <a href="javascript:formSubmit()" class="btn btn-primary mr-1 mb-1">Submit</a>
-                                                    <button type="reset" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
-                                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                                                    <button data-oper='list' class="btn btn-outline-light mr-1 mb-1">List</button>
+                                                    <button data-oper='modify' class="btn btn-primary mr-1 mb-1">Update</button>
+                                                    <button data-oper='delete' class="btn btn-warning mr-1 mb-1">Delete</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -78,21 +78,4 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script>
-    function formSubmit() {
-        var param = new Object();
-        param = $("#envInsertForm").serialize();
-
-        $.ajax({
-            url: '/env/register',
-            data: param,
-            type: 'post',
-            success: function (data) {
-                console.log("success", data);
-                location.href = "/env/list";
-            },
-            error: function (e) {
-                console.log(e);
-            }
-        });
-    }
 </script>

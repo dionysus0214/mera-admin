@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.AllArgsConstructor;
@@ -33,11 +34,11 @@ public class EnvController {
         return "/env/listTableAjax";
     }
 
-    // @GetMapping("/get")
-    // public void get(@RequestParam("seq") int seq, Model model) {
-    // logger.info("/get");
-    // model.addAttribute("env", service.get(seq));
-    // }
+    @GetMapping("/get")
+    public void get(@RequestParam("seq") int seq, Model model) {
+        logger.info("/get");
+        model.addAttribute("env", service.get(seq));
+    }
 
     @GetMapping("/register")
     public void register() {
