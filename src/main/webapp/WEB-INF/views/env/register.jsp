@@ -58,7 +58,7 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <a href="javascript:formSubmit()" class="btn btn-primary mr-1 mb-1">Submit</a>
-                                                    <button type="button" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
+                                                    <button type="reset" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
                                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                                 </div>
                                             </div>
@@ -81,7 +81,6 @@
     function formSubmit() {
         var param = new Object();
         param = $("#envInsertForm").serialize();
-        console.log(param);
 
         $.ajax({
             url: '/env/register',
@@ -89,11 +88,10 @@
             type: 'post',
             success: function (data) {
                 console.log("success", data);
+                location.href = "/env/list";
             },
             error: function (e) {
                 console.log(e);
-            },
-            complete: function () {
             }
         });
     }

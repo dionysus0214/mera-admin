@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.AllArgsConstructor;
 
@@ -43,11 +44,12 @@ public class EnvController {
     }
 
     @PostMapping("/register")
-    public String register(EnvVO env) {
+    public String register(EnvVO env, RedirectAttributes rttr) {
         logger.info("register : " + env);
         service.register(env);
+        rttr.addFlashAttribute("result", env.getSeq());
 
-        return "/env/list";
+        return "redirect:/env/list";
     }
 
     // @PostMapping("/modify")
