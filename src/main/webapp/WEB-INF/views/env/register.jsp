@@ -35,25 +35,25 @@
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="name-vertical">Name</label>
-                                                        <input type="text" id="env_nm" value="test" class="form-control" name="env_nm" placeholder="Name">
+                                                        <input type="text" id="env_nm" class="form-control" name="env_nm" placeholder="Name">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="title-vertical">Title</label>
-                                                        <input type="text" id="env_title" value="test" class="form-control" name="env_title" placeholder="Title">
+                                                        <input type="text" id="env_title" class="form-control" name="env_title" placeholder="Title">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="content-vertical">Content</label>
-                                                        <input type="text" id="env_val" value="test" class="form-control" name="env_val" placeholder="Content">
+                                                        <input type="text" id="env_val" class="form-control" name="env_val" placeholder="Content">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="content-vertical">Y/N</label>
-                                                        <input type="text" id="use_yn" value="Y" class="form-control" name="use_yn" placeholder="Y/N">
+                                                        <input type="text" id="use_yn" class="form-control" name="use_yn" placeholder="Y/N">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
