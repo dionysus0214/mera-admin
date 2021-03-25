@@ -25,62 +25,52 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Environment Register</h4>
+                                <h4 class="card-title">Environment Modify Page</h4>
                             </div>
                             <div class="card-content">
                                 <div class="card-body">
-                                    <form class="form form-vertical" id="envInsertForm" name="envInsertForm">
+                                    <form class="form form-vertical" id="envUpdateForm" >
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="name-vertical">Name</label>
-                                                        <input type="text" class="form-control" name="env_nm" placeholder="Name">
+                                                        <input type="text" class="form-control" name="env_nm" value='<c:out value="${env.env_nm}"/>' readonly="readonly">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="title-vertical">Title</label>
-                                                        <input type="text" class="form-control" name="env_title" placeholder="Title">
+                                                        <input type="text" class="form-control" name="env_title" value='<c:out value="${env.env_title}"/>'>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="content-vertical">Content</label>
-                                                        <input type="text" class="form-control" name="env_val" placeholder="Content">
+                                                        <input type="text" class="form-control" name="env_val" value='<c:out value="${env.env_val}"/>'>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="content-vertical">Y/N</label>
-                                                        <input type="text" class="form-control" name="use_yn" placeholder="Y/N">
+                                                        <input type="text" class="form-control" name="use_yn" value='<c:out value="${env.use_yn}"/>'>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
-                                                    <a href="javascript:formSubmit()" class="btn btn-primary mr-1 mb-1">Submit</a>
-                                                    <button type="reset" class="btn btn-outline-warning mr-1 mb-1">Reset</button>
+                                                    <div class="form-group">
+                                                        <label for="content-vertical">Update Date</label>
+                                                        <input type="text" class="form-control" name="upd_dt" value='<fmt:formatDate value="${env.upd_dt}" type="date" pattern="yyyy-MM-dd"/>'>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <button type="submit" data-oper='list' class="btn btn-outline-light mr-1 mb-1">List</button>
+                                                    <button type="submit" data-oper='modify' class="btn btn-primary mr-1 mb-1">Modify</button>
+                                                    <button type="submit" data-oper='delete' class="btn btn-warning mr-1 mb-1">Delete</button>
                                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
-                                    <!-- Modal -->
-                                    <div class="modal fade text-left" tabindex="-1" role="dialog" aria-labelledby="myModalLabel160" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header bg-primary white">
-                                                    <h5 class="modal-title" id="myModalLabel160">ADD ENVIRONMENT</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">환경변수 등록이 완료되었습니다.</div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -95,25 +85,22 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script>
-    function formSubmit() {
-        var param = new Object();
-        param = $("#envInsertForm").serialize();
+    $(document).ready(function() {
+        var formObj = $("form");
 
-        $.ajax({
-            url: '/env/register',
-            data: param,
-            type: 'post',
-            success: function (data) {
-                console.log("success", data);
+        $('button').on("click", function(e) {
+            e.preventDefault(); 
 
-                if(data === 'success'){
-                    alert("등록이 완료되었습니다.");
-                    self.location ="/env/list";
-                }
-            },
-            error: function (e) {
-                console.log(e);
+            var operation = $(this).data("oper");
+            console.log(operation);
+
+            if(operation === 'remove') {
+                formObj.attr("action", "/env/remove");  
+            } else if(operation === 'list') {
+                self.location = "/env/list";
+                return;
             }
+            formObj.submit();
         });
-    }
+    });
 </script>

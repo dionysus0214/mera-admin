@@ -44,24 +44,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="envListTable"></div>
-                                <!-- Modal -->
-                                <div class="modal fade text-left" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel160" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header bg-primary white">
-                                                <h5 class="modal-title" id="myModalLabel160">ADD ENVIRONMENT</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">처리가 완료되었습니다.</div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <div id="envListTable"></div>                               
                             </div>
                         </div>
                     </div>
@@ -81,20 +64,6 @@
 <script>
     $(document).ready(function() {
         envList();
-
-        var result = '<c:out value="${result}"/>';
-        console.log(result);
-        checkModal(result);
-
-        function checkModal(result) {
-            if (result == '') {
-                return;
-            }
-            if (parseInt(result) > 0) {
-                $(".modal-body").html("게시글 " + parseInt(result) + "번이 등록되었습니다.");
-            }
-            $("#addModal").modal("show");
-        }
 
         $('#addBtn').on("click", function() {
             location.href = "/env/register";

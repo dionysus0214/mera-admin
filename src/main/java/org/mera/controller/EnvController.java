@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.AllArgsConstructor;
@@ -45,34 +46,33 @@ public class EnvController {
     }
 
     @PostMapping("/register")
-    public String register(EnvVO env, RedirectAttributes rttr) {
+    @ResponseBody
+    public String register(EnvVO env) {
         logger.info("register : " + env);
         service.register(env);
-        rttr.addFlashAttribute("result", env.getSeq());
+        return "success";
+    }
+
+    @PostMapping("/modify")
+    public String modify(EnvVO env, RedirectAttributes rttr) {
+        logger.info("modify : " + env);
+
+        if (service.modify(env)) {
+            rttr.addFlashAttribute("result", "success");
+        }
 
         return "redirect:/env/list";
     }
 
-    // @PostMapping("/modify")
-    // public String modify(EnvVO env, RedirectAttributes rttr) {
-    // logger.info("modify : " + env);
+    @PostMapping("/remove")
+    public String remove(@RequestParam("seq") int seq, RedirectAttributes rttr) {
+        logger.info("remove : " + seq);
 
-    // if (service.modify(env)) {
-    // rttr.addFlashAttribute("result", "success");
-    // }
+        if (service.remove(seq)) {
+            rttr.addFlashAttribute("result", "success");
+        }
 
-    // return "redirect:/env/list";
-    // }
-
-    // @PostMapping("/remove")
-    // public String remove(@RequestParam("seq") int seq, RedirectAttributes rttr) {
-    // logger.info("remove : " + seq);
-
-    // if (service.remove(seq)) {
-    // rttr.addFlashAttribute("result", "success");
-    // }
-
-    // return "redirect:/env/list";
-    // }
+        return "redirect:/env/list";
+    }
 
 }
