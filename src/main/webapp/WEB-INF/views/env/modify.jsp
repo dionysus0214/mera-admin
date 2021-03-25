@@ -41,30 +41,34 @@
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="title-vertical">Title</label>
-                                                        <input type="text" class="form-control" name="env_title" value='<c:out value="${env.env_title}"/>'>
+                                                        <!-- <input type="text" class="form-control" name="env_title" value='<c:out value="${env.env_title}"/>'> -->
+                                                        <input type="text" class="form-control" name="env_title" value='test'>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="content-vertical">Content</label>
-                                                        <input type="text" class="form-control" name="env_val" value='<c:out value="${env.env_val}"/>'>
+                                                        <!-- <input type="text" class="form-control" name="env_val" value='<c:out value="${env.env_val}"/>'> -->
+                                                        <input type="text" class="form-control" name="env_val" value='test'>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="content-vertical">Y/N</label>
-                                                        <input type="text" class="form-control" name="use_yn" value='<c:out value="${env.use_yn}"/>'>
+                                                        <!-- <input type="text" class="form-control" name="use_yn" value='<c:out value="${env.use_yn}"/>'> -->
+                                                        <input type="text" class="form-control" name="use_yn" value='Y'>
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <!-- <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="content-vertical">Update Date</label>
                                                         <input type="text" class="form-control" name="upd_dt" value='<fmt:formatDate value="${env.upd_dt}" type="date" pattern="yyyy-MM-dd"/>'>
+                                                        <input type="text" class="form-control" name="upd_dt" value='<fmt:formatDate value="${env.upd_dt}" type="date" pattern="yyyy-MM-dd"/>'>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 <div class="col-12">
-                                                    <button type="submit" data-oper='list' class="btn btn-outline-light mr-1 mb-1">List</button>
-                                                    <button type="submit" data-oper='modify' class="btn btn-primary mr-1 mb-1">Modify</button>
+                                                    <button class="btn btn-outline-light mr-1 mb-1" onclick="history.back()">List</button>
+                                                    <a href="javascript:formModify()" class="btn btn-primary mr-1 mb-1">Modify</a>
                                                     <button type="submit" data-oper='delete' class="btn btn-warning mr-1 mb-1">Delete</button>
                                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                                 </div>
@@ -85,22 +89,26 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script>
-    $(document).ready(function() {
-        var formObj = $("form");
+    function formModify() {
+        var param = new Object();
+        param = $("#envUpdateForm").serialize();
+        console.log(param);
 
-        $('button').on("click", function(e) {
-            e.preventDefault(); 
+        $.ajax({
+            url: '/env/modify',
+            data: param,
+            type: 'post',
+            success: function (data) {
+                console.log("success", data);
 
-            var operation = $(this).data("oper");
-            console.log(operation);
-
-            if(operation === 'remove') {
-                formObj.attr("action", "/env/remove");  
-            } else if(operation === 'list') {
-                self.location = "/env/list";
-                return;
+                if(data === 'success'){
+                    alert("수정이 완료되었습니다.");
+                    self.location ="/env/list";
+                }
+            },
+            error: function (e) {
+                console.log(e);
             }
-            formObj.submit();
         });
-    });
+    }
 </script>

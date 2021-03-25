@@ -63,8 +63,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
-                                                    <button data-oper='list' class="btn btn-outline-light mr-1 mb-1" onclick="location.href='/env/list'">List</button>
-                                                    <button data-oper='modify' class="btn btn-primary mr-1 mb-1" onclick="location.href='/env/modify?seq=<c:out value="${env.seq}"/>'">Modify</button>
+                                                    <button data-oper='list' class="btn btn-outline-light mr-1 mb-1">List</button>
+                                                    <button data-oper='modify' class="btn btn-primary mr-1 mb-1">Modify</button>
                                                     <button data-oper='delete' class="btn btn-warning mr-1 mb-1">Delete</button>
                                                 </div>
                                             </div>
@@ -84,4 +84,5 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script>
+
 </script>

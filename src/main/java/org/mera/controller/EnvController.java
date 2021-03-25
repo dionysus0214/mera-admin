@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.AllArgsConstructor;
 
@@ -50,29 +49,28 @@ public class EnvController {
     public String register(EnvVO env) {
         logger.info("register : " + env);
         service.register(env);
+
         return "success";
     }
 
     @PostMapping("/modify")
-    public String modify(EnvVO env, RedirectAttributes rttr) {
+    @ResponseBody
+    public String modify(EnvVO env) {
         logger.info("modify : " + env);
+        service.modify(env);
 
-        if (service.modify(env)) {
-            rttr.addFlashAttribute("result", "success");
-        }
-
-        return "redirect:/env/list";
+        return "success";
     }
 
-    @PostMapping("/remove")
-    public String remove(@RequestParam("seq") int seq, RedirectAttributes rttr) {
-        logger.info("remove : " + seq);
+    // @PostMapping("/remove")
+    // public String remove(@RequestParam("seq") int seq, RedirectAttributes rttr) {
+    // logger.info("remove : " + seq);
 
-        if (service.remove(seq)) {
-            rttr.addFlashAttribute("result", "success");
-        }
+    // if (service.remove(seq)) {
+    // rttr.addFlashAttribute("result", "success");
+    // }
 
-        return "redirect:/env/list";
-    }
+    // return "redirect:/env/list";
+    // }
 
 }
