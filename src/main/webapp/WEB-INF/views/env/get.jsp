@@ -57,8 +57,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
-                                                    <button data-oper='list' class="btn btn-outline-light mr-1 mb-1">List</button>
-                                                    <button data-oper='modify' class="btn btn-primary mr-1 mb-1">Update</button>
+                                                    <div class="form-group">
+                                                        <label for="content-vertical">Register Date</label>
+                                                        <input type="text" class="form-control" name="reg_dt" value='<fmt:formatDate value="${env.reg_dt}" type="date" pattern="yyyy-MM-dd" />' readonly="readonly">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <button data-oper='list' class="btn btn-outline-light mr-1 mb-1" onclick="location.href='/env/list'">List</button>
+                                                    <button data-oper='modify' class="btn btn-primary mr-1 mb-1" onclick="location.href='/env/modify?seq=<c:out value="${env.seq}"/>'">Modify</button>
                                                     <button data-oper='delete' class="btn btn-warning mr-1 mb-1">Delete</button>
                                                 </div>
                                             </div>
