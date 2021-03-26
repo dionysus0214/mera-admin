@@ -61,7 +61,7 @@
                                                     <a href="javascript:formModify()" class="btn btn-primary mr-1 mb-1">Modify</a>
                                                     <a href="javascript:formRemove()" class="btn btn-warning mr-1 mb-1">Delete</a>
                                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                                                    <input type="hidden" id="seq" name="seq" value="${env.seq}" />
+                                                    <input type="hidden" name="seq" value="${env.seq}" />
                                                 </div>
                                             </div>
                                         </div>

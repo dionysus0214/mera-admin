@@ -47,9 +47,9 @@ public class EnvController {
         return "success";
     }
 
-    @GetMapping({ "/get", "/modify" })
+    @GetMapping("/modify")
     public void get(@RequestParam("seq") int seq, Model model) {
-        logger.info("get or modify");
+        logger.info("modify");
         model.addAttribute("env", service.get(seq));
     }
 
