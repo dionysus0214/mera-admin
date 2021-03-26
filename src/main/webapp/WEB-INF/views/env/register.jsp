@@ -65,7 +65,7 @@
                                         </div>
                                     </form>
                                     <!-- Modal -->
-                                    <div class="modal fade text-left" tabindex="-1" role="dialog" aria-labelledby="myModalLabel160" aria-hidden="true">
+                                    <div class="modal fade text-left" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel160" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header bg-primary white">
@@ -93,6 +93,10 @@
 
 <%@include file="../include/footer.jsp"%>
 
+<!-- BEGIN: Page JS-->
+<script src="/resources/app-assets/js/scripts/modal/components-modal.js"></script>
+<!-- END: Page JS-->
+
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script>
     function formSubmit() {
@@ -107,8 +111,9 @@
                 console.log("success", data);
 
                 if(data === 'success'){
-                    alert("등록이 완료되었습니다.");
-                    self.location ="/env/list";
+                    var modal = $(".modal");
+                    $(".modal").modal("show");
+                    self.location = "/env/list";
                 }
             },
             error: function (e) {

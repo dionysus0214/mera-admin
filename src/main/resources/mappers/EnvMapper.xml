@@ -27,7 +27,7 @@
 
 <update id="update">
     UPDATE mera_env_test 
-    SET env_nm = #{env_name}, env_title = #{env_title}, env_val = #{env_val}, use_yn = ${use_yn}, upd_dt = CURRENT_TIMESTAMP
+    SET env_nm = #{env_nm}, env_title = #{env_title}, env_val = #{env_val}, use_yn = #{use_yn}, upd_dt = CURRENT_TIMESTAMP
     WHERE seq = #{seq}
 </update>
 

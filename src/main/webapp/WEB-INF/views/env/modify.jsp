@@ -41,36 +41,27 @@
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="title-vertical">Title</label>
-                                                        <!-- <input type="text" class="form-control" name="env_title" value='<c:out value="${env.env_title}"/>'> -->
-                                                        <input type="text" class="form-control" name="env_title" value='test'>
+                                                        <input type="text" class="form-control" name="env_title" value='<c:out value="${env.env_title}"/>'>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="content-vertical">Content</label>
-                                                        <!-- <input type="text" class="form-control" name="env_val" value='<c:out value="${env.env_val}"/>'> -->
-                                                        <input type="text" class="form-control" name="env_val" value='test'>
+                                                        <input type="text" class="form-control" name="env_val" value='<c:out value="${env.env_val}"/>'>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="content-vertical">Y/N</label>
-                                                        <!-- <input type="text" class="form-control" name="use_yn" value='<c:out value="${env.use_yn}"/>'> -->
-                                                        <input type="text" class="form-control" name="use_yn" value='Y'>
+                                                        <input type="text" class="form-control" name="use_yn" value='<c:out value="${env.use_yn}"/>'>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label for="content-vertical">Update Date</label>
-                                                        <input type="text" class="form-control" name="upd_dt" value='<fmt:formatDate value="${env.upd_dt}" type="date" pattern="yyyy-MM-dd"/>'>
-                                                        <input type="text" class="form-control" name="upd_dt" value='<fmt:formatDate value="${env.upd_dt}" type="date" pattern="yyyy-MM-dd"/>'>
-                                                    </div>
-                                                </div> -->
                                                 <div class="col-12">
-                                                    <button class="btn btn-outline-light mr-1 mb-1" onclick="history.back()">List</button>
+                                                    <a href="javascript:formBack()" class="btn btn-outline-light mr-1 mb-1">List</a>
                                                     <a href="javascript:formModify()" class="btn btn-primary mr-1 mb-1">Modify</a>
-                                                    <button type="submit" data-oper='delete' class="btn btn-warning mr-1 mb-1">Delete</button>
+                                                    <button type="submit" class="btn btn-warning mr-1 mb-1">Delete</button>
                                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                                                    <input type="hidden" name="seq" value="${env.seq}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -89,6 +80,10 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script>
+    function formBack() {
+        self.location = "/env/list";
+    }
+
     function formModify() {
         var param = new Object();
         param = $("#envUpdateForm").serialize();

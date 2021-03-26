@@ -57,15 +57,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label for="content-vertical">Register Date</label>
-                                                        <input type="text" class="form-control" name="reg_dt" value='<fmt:formatDate value="${env.reg_dt}" type="date" pattern="yyyy-MM-dd" />' readonly="readonly">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <button data-oper='list' class="btn btn-outline-light mr-1 mb-1">List</button>
-                                                    <button data-oper='modify' class="btn btn-primary mr-1 mb-1">Modify</button>
-                                                    <button data-oper='delete' class="btn btn-warning mr-1 mb-1">Delete</button>
+                                                    <a href="javascript:formBack()" class="btn btn-outline-light mr-1 mb-1" >List</a>
+                                                    <a href="javascript:formUpdate()" class="btn btn-primary mr-1 mb-1">Modify</a>
+                                                    <a href="javascript:formUpdate()" class="btn btn-warning mr-1 mb-1">Delete</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -84,5 +78,11 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script>
+    function formBack() {
+        self.location = "/env/list";
+    }
 
+    function formUpdate() {
+        self.location = '/env/modify?seq=<c:out value="${env.seq}"/>';
+    }
 </script>

@@ -34,12 +34,6 @@ public class EnvController {
         return "/env/listTableAjax";
     }
 
-    @GetMapping("/get")
-    public void get(@RequestParam("seq") int seq, Model model) {
-        logger.info("/get");
-        model.addAttribute("env", service.get(seq));
-    }
-
     @GetMapping("/register")
     public void register() {
     }
@@ -53,7 +47,13 @@ public class EnvController {
         return "success";
     }
 
-    @PostMapping("/modify")
+    @GetMapping({ "/get", "/modify" })
+    public void get(@RequestParam("seq") int seq, Model model) {
+        logger.info("/get or modify");
+        model.addAttribute("env", service.get(seq));
+    }
+
+    @RequestMapping("/modify")
     @ResponseBody
     public String modify(EnvVO env) {
         logger.info("modify : " + env);
@@ -61,16 +61,5 @@ public class EnvController {
 
         return "success";
     }
-
-    // @PostMapping("/remove")
-    // public String remove(@RequestParam("seq") int seq, RedirectAttributes rttr) {
-    // logger.info("remove : " + seq);
-
-    // if (service.remove(seq)) {
-    // rttr.addFlashAttribute("result", "success");
-    // }
-
-    // return "redirect:/env/list";
-    // }
 
 }

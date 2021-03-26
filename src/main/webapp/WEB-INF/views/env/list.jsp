@@ -56,10 +56,6 @@
 
 <%@include file="../include/footer.jsp"%>
 
-<!-- BEGIN: Page JS-->
-<script src="/resources/app-assets/js/scripts/modal/components-modal.js"></script>
-<!-- END: Page JS-->
-
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
