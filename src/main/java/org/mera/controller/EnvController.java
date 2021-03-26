@@ -49,15 +49,24 @@ public class EnvController {
 
     @GetMapping({ "/get", "/modify" })
     public void get(@RequestParam("seq") int seq, Model model) {
-        logger.info("/get or modify");
+        logger.info("get or modify");
         model.addAttribute("env", service.get(seq));
     }
 
-    @RequestMapping("/modify")
+    @PostMapping("/modify")
     @ResponseBody
     public String modify(EnvVO env) {
         logger.info("modify : " + env);
         service.modify(env);
+
+        return "success";
+    }
+
+    @PostMapping("/remove")
+    @ResponseBody
+    public String remove(@RequestParam("seq") int seq) {
+        logger.info("remove : " + seq);
+        service.remove(seq);
 
         return "success";
     }

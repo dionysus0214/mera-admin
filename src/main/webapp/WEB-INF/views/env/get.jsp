@@ -59,7 +59,7 @@
                                                 <div class="col-12">
                                                     <a href="javascript:formBack()" class="btn btn-outline-light mr-1 mb-1" >List</a>
                                                     <a href="javascript:formUpdate()" class="btn btn-primary mr-1 mb-1">Modify</a>
-                                                    <a href="javascript:formUpdate()" class="btn btn-warning mr-1 mb-1">Delete</a>
+                                                    <a href="javascript:formRemove()" class="btn btn-warning mr-1 mb-1">Delete</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -84,5 +84,9 @@
 
     function formUpdate() {
         self.location = '/env/modify?seq=<c:out value="${env.seq}"/>';
+    }
+
+    function formRemove() {
+        
     }
 </script>

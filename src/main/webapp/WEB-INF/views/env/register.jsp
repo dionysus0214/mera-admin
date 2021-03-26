@@ -111,8 +111,7 @@
                 console.log("success", data);
 
                 if(data === 'success'){
-                    var modal = $(".modal");
-                    $(".modal").modal("show");
+                    alert("등록이 완료되었습니다.");
                     self.location = "/env/list";
                 }
             },

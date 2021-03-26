@@ -25,7 +25,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Environment Modify Page</h4>
+                                <h4 class="card-title">Environment Detail Page</h4>
                             </div>
                             <div class="card-content">
                                 <div class="card-body">
@@ -59,9 +59,9 @@
                                                 <div class="col-12">
                                                     <a href="javascript:formBack()" class="btn btn-outline-light mr-1 mb-1">List</a>
                                                     <a href="javascript:formModify()" class="btn btn-primary mr-1 mb-1">Modify</a>
-                                                    <button type="submit" class="btn btn-warning mr-1 mb-1">Delete</button>
+                                                    <a href="javascript:formRemove()" class="btn btn-warning mr-1 mb-1">Delete</a>
                                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                                                    <input type="hidden" name="seq" value="${env.seq}" />
+                                                    <input type="hidden" id="seq" name="seq" value="${env.seq}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -98,6 +98,29 @@
 
                 if(data === 'success'){
                     alert("수정이 완료되었습니다.");
+                    self.location ="/env/list";
+                }
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+    }
+
+    function formRemove() {
+        var param = new Object();
+        param = $("#envUpdateForm").serialize();
+        console.log(param);
+
+        $.ajax({
+            url: '/env/remove',
+            data: param,
+            type: 'post',
+            success: function (data) {
+                console.log("success", data);
+
+                if(data === 'success'){
+                    alert("삭제가 완료되었습니다.");
                     self.location ="/env/list";
                 }
             },

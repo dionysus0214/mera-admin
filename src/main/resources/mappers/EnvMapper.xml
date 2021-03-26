@@ -22,7 +22,7 @@
 </insert>
 
 <delete id="delete">
-    DELETE FROM mera_env_test WHERE seq = {#seq}
+    DELETE FROM mera_env_test WHERE seq = #{seq}
 </delete>
 
 <update id="update">
