@@ -25,7 +25,6 @@
 <![CDATA[
     SELECT @ROWNUM := @ROWNUM + 1 AS rownum, met.* 
     FROM mera_env_test met, (SELECT @ROWNUM := 0) R
-    ORDER BY rownum desc
 ]]>
 </select>
 
@@ -36,7 +35,6 @@
 ]]>
 <include refid="criteria"></include>
 <![CDATA[
-    ORDER BY rownum desc
     LIMIT #{startPage}, #{amount}
 ]]>
 </select>
