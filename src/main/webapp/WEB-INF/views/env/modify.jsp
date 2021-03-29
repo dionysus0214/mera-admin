@@ -87,7 +87,6 @@
     function formModify() {
         var param = new Object();
         param = $("#envUpdateForm").serialize();
-        console.log(param);
 
         $.ajax({
             url: '/env/modify',
@@ -110,7 +109,6 @@
     function formRemove() {
         var param = new Object();
         param = $("#envUpdateForm").serialize();
-        console.log(param);
 
         $.ajax({
             url: '/env/remove',

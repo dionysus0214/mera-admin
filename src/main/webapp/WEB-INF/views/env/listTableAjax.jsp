@@ -14,7 +14,6 @@
                     <th>Content</th>
                     <th>YN</th>
                     <th>Date</th>
-                    <th>Button</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -26,7 +25,6 @@
                     <td><c:out value="${env.env_val}"/></td>
                     <td><c:out value="${env.use_yn}"/></td>
                     <td><fmt:formatDate value="${env.reg_dt}" type="date" pattern="yyyy-MM-dd"/></td>
-                    <td>Delete</td>
                 </tr>
                 </c:forEach>
                 </tbody>
