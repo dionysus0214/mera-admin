@@ -6,6 +6,7 @@ import lombok.Data;
 
 @Data
 public class EnvVO {
+    private int rownum;
     private int seq;
     private String env_nm;
     private String env_title;

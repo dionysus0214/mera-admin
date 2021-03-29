@@ -20,7 +20,7 @@
                 <tbody>
                 <c:forEach items="${list}" var="env">
                 <tr>
-                    <td><c:out value="${env.seq}"/></td>
+                    <td><c:out value="${env.rownum}"/></td>
                     <td><a href='/env/modify?seq=<c:out value="${env.seq}"/>'><c:out value="${env.env_nm}"/></a></td>
                     <td><c:out value="${env.env_title}"/></td>
                     <td><c:out value="${env.env_val}"/></td>

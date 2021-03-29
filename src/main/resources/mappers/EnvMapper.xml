@@ -4,8 +4,9 @@
 
 <select id="getList" resultType="org.mera.domain.EnvVO">
 <![CDATA[
-    SELECT * FROM mera_env_test
-    ORDER BY seq desc
+    SELECT @ROWNUM := @ROWNUM + 1 AS rownum, met.* 
+    FROM mera_env_test met, (SELECT @ROWNUM := 0) R
+    ORDER BY rownum desc
 ]]>
 </select>
 
