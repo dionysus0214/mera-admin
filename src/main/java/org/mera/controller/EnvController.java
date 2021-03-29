@@ -1,6 +1,8 @@
 package org.mera.controller;
 
+import org.mera.domain.Criteria;
 import org.mera.domain.EnvVO;
+import org.mera.domain.PageMaker;
 import org.mera.service.EnvService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,9 +29,13 @@ public class EnvController {
     }
 
     @PostMapping("/list")
-    public String list(Model model) throws Exception {
-        logger.info("list");
-        model.addAttribute("list", service.getList());
+    public String list(Criteria cri, Model model) throws Exception {
+        logger.info("list: " + cri);
+        model.addAttribute("list", service.getList(cri));
+
+        int total = service.getTotal(cri);
+        logger.info("total: " + total);
+        model.addAttribute("pageMaker", new PageMaker(cri, total));
 
         return "/env/listTableAjax";
     }
@@ -41,7 +47,7 @@ public class EnvController {
     @PostMapping("/register")
     @ResponseBody
     public String register(EnvVO env) {
-        logger.info("register : " + env);
+        logger.info("register: " + env);
         service.register(env);
 
         return "success";
@@ -56,7 +62,7 @@ public class EnvController {
     @PostMapping("/modify")
     @ResponseBody
     public String modify(EnvVO env) {
-        logger.info("modify : " + env);
+        logger.info("modify: " + env);
         service.modify(env);
 
         return "success";
@@ -65,7 +71,7 @@ public class EnvController {
     @PostMapping("/remove")
     @ResponseBody
     public String remove(@RequestParam("seq") int seq) {
-        logger.info("remove : " + seq);
+        logger.info("remove: " + seq);
         service.remove(seq);
 
         return "success";

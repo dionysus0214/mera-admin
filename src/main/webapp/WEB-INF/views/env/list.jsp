@@ -37,7 +37,7 @@
                                             <input type="text" class="form-control" id="keyword" name="keyword" value="" placeholder="Input keyword"/>                                       
                                         </div>
                                         <div class="col-md-6 col-12 mb-1">
-                                            <a href="javascript:envList()" class="btn btn-primary mr-1 mb-1">Search</a>
+                                            <a href="javascript:envList(1)" class="btn btn-primary mr-1 mb-1">Search</a>
                                         </div>
                                         <div class="col-12">
                                             <button type="button" class="btn btn-outline-warning mr-1 mb-1 pull-right" id="addBtn">Add</button>
@@ -59,15 +59,16 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
-        envList();
+        envList(1);
 
         $('#addBtn').on("click", function() {
             location.href = "/env/register";
         });
     });
 
-    function envList() {
+    function envList(pageNum) {
         var itemObj = new Object();
+        itemObj.pageNum = pageNum;
 
         envService.getList("/env/list", itemObj, function(data) {
             $("#envListTable").html(data);

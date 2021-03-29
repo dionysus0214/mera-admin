@@ -34,3 +34,24 @@
         </div>
     </div>
 </div>
+<div class="card">
+    <ul class="pagination justify-content-center mt-2">
+        <c:if test="${pageMaker.prev}">
+            <li class="page-item prev">
+                <a class="page-link" href="javascript:envList(${pageMaker.startPage -1})">Prev</a>
+            </li>
+        </c:if>
+
+        <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+            <li class="page-item ${pageMaker.cri.pageNum == num ? "active":""} ">
+                <a class="page-link" href="javascript:envList(${num})">${num}</a>
+            </li>
+        </c:forEach>
+
+        <c:if test="${pageMaker.next}">
+            <li class="page-item next">
+                <a class="page-link" href="javascript:envList(${pageMaker.endPage +1})">Next</a>
+            </li>
+        </c:if>
+    </ul>
+</div>

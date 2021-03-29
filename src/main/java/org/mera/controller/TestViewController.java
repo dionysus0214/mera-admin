@@ -21,7 +21,7 @@ public class TestViewController {
 	private static final Logger logger = LoggerFactory.getLogger(TestViewController.class);
 
 	private TestViewService service;
-	
+
 	@GetMapping("/list")
 	public void list(Model model) throws Exception {
 	}
