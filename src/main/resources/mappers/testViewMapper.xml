@@ -6,10 +6,10 @@
         <trim prefix="AND">
             <choose>
                 <when test= "category == 'CD'.toString()">
-                    api_cd like CONCAT('%', #{keyword}, '%')
+                    api_cd LIKE CONCAT('%', #{keyword}, '%')
                 </when>
                 <when test= "category == 'NM'.toString()">
-                    api_nm like CONCAT('%', #{keyword}, '%')
+                    api_nm LIKE CONCAT('%', #{keyword}, '%')
                 </when>
             </choose>
         </trim>

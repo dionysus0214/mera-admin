@@ -2,6 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.mera.mapper.EnvMapper">
 
+<sql id="criteria">
+    <trim prefix="WHERE">
+        <choose>
+            <when test= "category == 'NM'.toString()">
+                env_nm LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test= "category == 'TITLE'.toString()">
+                env_title LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test= "category == 'VAL'.toString()">
+                env_val LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test= "category == 'YN'.toString()">
+                use_yn LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+        </choose>
+    </trim>
+</sql>
+
 <select id="getList" resultType="org.mera.domain.EnvVO">
 <![CDATA[
     SELECT @ROWNUM := @ROWNUM + 1 AS rownum, met.* 
@@ -14,6 +33,9 @@
 <![CDATA[
     SELECT @ROWNUM := @ROWNUM + 1 AS rownum, met.* 
     FROM mera_env_test met, (SELECT @ROWNUM := 0) R
+]]>
+<include refid="criteria"></include>
+<![CDATA[
     ORDER BY rownum desc
     LIMIT #{startPage}, #{amount}
 ]]>
@@ -45,6 +67,7 @@
 <![CDATA[
     SELECT count(*) FROM mera_env_test
 ]]>
+<include refid="criteria"></include>
 </select>
 
 </mapper>
