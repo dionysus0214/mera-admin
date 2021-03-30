@@ -36,7 +36,7 @@
                                                     <div class="form-group">
                                                         <label for="name-vertical">Name</label>
                                                         <input type="text" class="form-control" name="env_nm" placeholder="Name">
-                                                    </div>
+                                                    </div>                                                
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
@@ -64,19 +64,20 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <!-- Modal -->
-                                    <div class="modal fade text-left" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel160" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header bg-primary white">
-                                                    <h5 class="modal-title" id="myModalLabel160">ADD ENVIRONMENT</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">환경변수 등록이 완료되었습니다.</div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                    <!-- File Upload -->
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">File Attach</div>
+                                                <div class="panel-body">
+                                                    <div class="form-group uploadDiv">
+                                                        <input type="file" name='uploadFile' multiple>
+                                                    </div>                                               
+                                                    <div class='uploadResult'> 
+                                                        <ul>
+                                                        
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -102,14 +103,12 @@
     function formSubmit() {
         var param = new Object();
         param = $("#envInsertForm").serialize();
-
         $.ajax({
             url: '/env/register',
             data: param,
             type: 'post',
             success: function (data) {
                 console.log("success", data);
-
                 if(data === 'success'){
                     alert("등록이 완료되었습니다.");
                     self.location = "/env/list";

@@ -83,18 +83,15 @@
     function formBack() {
         history.go(-1);
     }
-
     function formModify() {
         var param = new Object();
         param = $("#envUpdateForm").serialize();
-
         $.ajax({
             url: '/env/modify',
             data: param,
             type: 'post',
             success: function (data) {
                 console.log("success", data);
-
                 if(data === 'success'){
                     alert("수정이 완료되었습니다.");
                     self.location ="/env/list";
@@ -105,18 +102,15 @@
             }
         });
     }
-
     function formRemove() {
         var param = new Object();
         param = $("#envUpdateForm").serialize();
-
         $.ajax({
             url: '/env/remove',
             data: param,
             type: 'post',
             success: function (data) {
                 console.log("success", data);
-
                 if(data === 'success'){
                     alert("삭제가 완료되었습니다.");
                     self.location ="/env/list";
