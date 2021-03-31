@@ -20,6 +20,9 @@
 	<script>
     $(document).ready(function(e) {
         $("#uploadBtn").on("click", function(e){
+            var csrfHeaderName = "${_csrf.headerName}";
+            var csrfTokenValue = "${_csrf.token}";
+
             var formData = new FormData();
             var inputFile = $("input[name='uploadFile']");           
             var files = inputFile[0].files;
@@ -36,6 +39,9 @@
                 data: formData,
                 type: 'post',
                 dataType: 'json',
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+                },
                 success: function(result) {
                     console.log(result);
                 }
